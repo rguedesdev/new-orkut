@@ -20,7 +20,7 @@ function WelcomeComponent() {
         className="image-people"
         src={Who}
         alt="Who"
-        width={400}
+        width={0}
         height={0}
         priority
       />

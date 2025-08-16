@@ -10,7 +10,7 @@ main {
   gap: 20px;
 }
 
-.central-container {
+.community-central-container {
   display: flex;
   flex-direction: column;
   gap: 20px;

@@ -36,7 +36,9 @@ function LoginComponent() {
             </div>
           </fieldset>
 
-          <button type="submit">Entrar</button>
+          <button className="btn-enter" type="submit">
+            Entrar
+          </button>
         </form>
 
         <p className="recover-box">

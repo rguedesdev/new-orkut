@@ -42,18 +42,18 @@ function BasicInfoComponent() {
         </div>
 
         <div className="personal-info">
-          <h1 className="name-nickname">Reinaldo Guedes</h1>
-          <p>Masculino, Solteiro(a)</p>
+          <h1 className="basicinfo-name-nickname">Reinaldo Guedes</h1>
+          <p className="gender-marital-status">Masculino, Solteiro(a)</p>
           <p className="state-country">
-            <FiMapPin size={15} /> <span>Brasil</span>
+            <FiMapPin size={15} /> <span>São Paulo, Brasil</span>
           </p>
         </div>
 
-        <hr className="hr-line" />
+        <hr className="hr-faded" />
 
         <div className="links-container">
           <Link className="link" href={`/home`}>
-            <MdPersonOutline size={22} />
+            <MdPersonOutline size={25} />
             <span>Perfil</span>
           </Link>
 

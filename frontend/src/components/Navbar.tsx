@@ -12,13 +12,15 @@ import { TbHelpSquareRounded } from "react-icons/tb";
 
 // Images
 import Logo from "../../public/orkut_logo.png";
+import Logo2 from "../../public/orkut_logo2.png";
+import Logo3 from "../../public/orkut_logo3.png";
 
 function Navbar() {
   return (
     <nav>
       <Image
         className="logo"
-        src={Logo}
+        src={Logo3}
         alt="Logo"
         width={0}
         height={0}

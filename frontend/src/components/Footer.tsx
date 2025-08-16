@@ -4,7 +4,7 @@ import "./footer.css";
 function Footer() {
   return (
     <footer>
-      <h1>@ 2025 Orkut.</h1>
+      <h1>@ 2025 Orkkut.</h1>
     </footer>
   );
 }

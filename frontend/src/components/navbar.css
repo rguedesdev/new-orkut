@@ -1,7 +1,7 @@
 nav {
   width: 100%;
   min-height: 70px;
-  background-color: #bfd0ec;
+  background-color: #ffffff; /* #bfd0ec */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   display: flex;

@@ -7,7 +7,7 @@ import "./home.css";
 import { WelcomeComponent } from "@/components/Welcome";
 import { LoginComponent } from "@/components/Login";
 
-function Home() {
+function HomePage() {
   return (
     <main>
       <WelcomeComponent />
@@ -16,4 +16,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;
