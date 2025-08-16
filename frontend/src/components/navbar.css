@@ -6,14 +6,18 @@ nav {
 
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   gap: 50px;
+
+  padding-inline: 40px;
 }
 
 .logo {
   width: 120px;
   height: auto;
   object-fit: contain;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 nav ul {
@@ -55,4 +59,27 @@ nav li:hover {
 nav li:hover::after {
   transform: scaleX(1);
   cursor: pointer;
+}
+
+/* Estilo para o input de busca */
+nav input[type="search"] {
+  background-color: #f0f5fc;
+  color: #353535; /* texto branco */
+  border: none;
+  border-radius: 4px;
+  padding: 0 10px;
+  height: 35px;
+  min-width: 300px;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+nav input[type="search"]::placeholder {
+  color: #bbb; /* placeholder em cinza claro */
+}
+
+nav input[type="search"]:focus {
+  box-shadow: 0 0 5px 2px #ed2590;
+  background-color: #f0f5fc; /* ligeiramente mais claro no foco */
 }

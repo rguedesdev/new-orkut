@@ -33,7 +33,7 @@ function CommunityBasicInfoComponent() {
         </div>
 
         <div className="community-info">
-          <h1 className="community-name">Sousou no Frieren Brasil</h1>
+          <h1 className="community-basicinfo-name">Sousou no Frieren Brasil</h1>
           <p className="community-members">
             <MdOutlinePeopleAlt size={22} />
             <span>2.345 membros</span>

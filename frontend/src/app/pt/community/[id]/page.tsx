@@ -7,6 +7,8 @@ import "./community.css";
 import { CommunityBasicInfoComponent } from "@/components/CommunityBasicInfo";
 import { CommunityDetailsComponent } from "@/components/CommunityDetails";
 import { ForumComponent } from "@/components/Forum";
+import { CommunityMembersComponent } from "@/components/CommunityMembers";
+import { RelatedCommunitiesComponent } from "@/components/RelatedCommunities";
 
 function CommunityPage() {
   return (
@@ -15,6 +17,10 @@ function CommunityPage() {
       <div className="community-central-container">
         <CommunityDetailsComponent />
         <ForumComponent />
+      </div>
+      <div className="community-right-container">
+        <CommunityMembersComponent />
+        <RelatedCommunitiesComponent />
       </div>
     </main>
   );

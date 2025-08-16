@@ -16,7 +16,7 @@ main {
   gap: 20px;
 }
 
-.right-container {
+.community-right-container {
   display: flex;
   flex-direction: column;
   gap: 20px;

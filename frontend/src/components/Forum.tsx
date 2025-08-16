@@ -15,6 +15,8 @@ import { BsChatLeftDots } from "react-icons/bs";
 import { PiChatText } from "react-icons/pi";
 import { MdOutlineReplyAll } from "react-icons/md";
 
+import { FaRegPenToSquare } from "react-icons/fa6";
+
 // Images
 import Kon from "../../public/kon.jpg";
 
@@ -25,7 +27,9 @@ function ForumComponent() {
         <div className="top-forum-elements">
           <h2 className="forum-title">Fórum</h2>
 
-          <button className="create-topic-btn">Criar Tópico</button>
+          <button className="create-topic-btn">
+            <FaRegPenToSquare size={20} /> <span>Criar Tópico</span>
+          </button>
         </div>
 
         <div className="topic-container">
@@ -39,12 +43,12 @@ function ForumComponent() {
           />
           <div className="topic-texts">
             <h3 className="topic-title">
-              <MdOutlineTopic size={30} />{" "}
+              <MdShortText size={30} />{" "}
               <span>Episódio 1 - 2ª Temporada (Contém Spoilers)</span>
             </h3>
 
             <p className="topic-info">
-              <BsChatLeftDots size={20} /> <span>55 Respostas</span>
+              <BsChatLeftDots size={18} /> <span>55 Respostas</span>
             </p>
           </div>
         </div>
@@ -67,7 +71,7 @@ function ForumComponent() {
             </h3>
 
             <p className="topic-info">
-              <PiChatText size={20} /> <span>55 Respostas</span>
+              <BsChatLeftDots size={18} /> <span>95 Respostas</span>
             </p>
           </div>
         </div>
@@ -90,7 +94,7 @@ function ForumComponent() {
             </h3>
 
             <p className="topic-info">
-              <MdOutlineReplyAll size={25} /> <span>55 Respostas</span>
+              <BsChatLeftDots size={18} /> <span>20 Respostas</span>
             </p>
           </div>
         </div>

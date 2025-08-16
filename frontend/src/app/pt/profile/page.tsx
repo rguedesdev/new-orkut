@@ -6,7 +6,7 @@ import { BasicInfoComponent } from "@/components/BasicInfo";
 import { ProfileDetailsComponent } from "@/components/ProfileDetails";
 import { TestimonialsComponent } from "@/components/Testimonials";
 import { FriendsComponent } from "@/components/Friends";
-import { CommunityComponent } from "@/components/Community";
+import { MyCommunitiesComponent } from "@/components/MyCommunities";
 
 function Profile() {
   return (
@@ -18,7 +18,7 @@ function Profile() {
       </div>
       <div className="right-container">
         <FriendsComponent />
-        <CommunityComponent />
+        <MyCommunitiesComponent />
       </div>
     </main>
   );

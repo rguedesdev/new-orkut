@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Sytle Sheet CSS
-import "./community.css";
+import "./my-communities.css";
 
 // Icons
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -11,10 +11,16 @@ import { FiMoreHorizontal } from "react-icons/fi";
 // Images
 import Frieren from "../../public/frieren.jpg";
 
-function CommunityComponent() {
+function MyCommunitiesComponent() {
   const communities = [
     { img: Frieren, name: "Otakus da Zona Sul - SP" },
     { img: Frieren, name: "Sousou no Frieren" },
+    { img: Frieren, name: "Otakus ZS" },
+    { img: Frieren, name: "Otakus ZS" },
+    { img: Frieren, name: "Otakus ZS" },
+    { img: Frieren, name: "Otakus ZS" },
+    { img: Frieren, name: "Otakus ZS" },
+    { img: Frieren, name: "Otakus ZS" },
     { img: Frieren, name: "Otakus ZS" },
   ];
 
@@ -55,4 +61,4 @@ function CommunityComponent() {
   );
 }
 
-export { CommunityComponent };
+export { MyCommunitiesComponent };

@@ -21,12 +21,18 @@
 }
 
 .create-topic-btn {
-  width: 150px;
-  height: 30px;
+  width: 200px;
+  height: 35px;
   color: #ffffff;
   background-color: #025d92;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
   transition: background-color 0.2s ease-in, transform 0.2s ease-in;
 }
@@ -78,7 +84,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
   margin-left: 3px;
 }
 

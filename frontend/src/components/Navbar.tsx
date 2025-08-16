@@ -33,7 +33,7 @@ function Navbar() {
         </li>
         <li>
           <RiUserCommunityLine size={20} />
-          <span>Junte-se ao Orkut</span>
+          <span>Junte-se ao Orkkut</span>
         </li>
         <li>
           <MdOutlinePermMedia size={20} />
@@ -44,6 +44,7 @@ function Navbar() {
           <span>Ajuda</span>
         </li>
       </ul>
+      <input type="search" placeholder="Buscar no Orkkut" />
     </nav>
   );
 }

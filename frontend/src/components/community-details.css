@@ -14,3 +14,33 @@
   font-size: 2rem;
   font-weight: bold;
 }
+
+.community-info-line {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* 200px para o label, resto para o value */
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.community-info-line-label {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* espaço entre ícone e texto */
+}
+
+.community-info-line-value {
+  display: flex;
+  align-items: center;
+}
+
+.communitydetails-hr-faded {
+  display: block;
+  border: none;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #0377b9, transparent);
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

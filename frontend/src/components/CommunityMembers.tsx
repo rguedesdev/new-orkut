@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Style Sheet CSS
-import "./friends.css";
+import "./community-members.css";
 
 // Icons
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -12,8 +12,8 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import Kon from "../../public/kon.jpg";
 import Marina from "../../public/marina.png";
 
-function FriendsComponent() {
-  const friends = [
+function CommunityMembersComponent() {
+  const members = [
     { name: "Marina Penharver", img: Marina },
     { name: "Rika Get Set", img: Kon },
     { name: "Rika Get Set", img: Kon },
@@ -26,36 +26,36 @@ function FriendsComponent() {
   ];
 
   return (
-    <section aria-labelledby="friends-title">
-      <div className="friends-container">
-        <h2 id="friends-title" className="friend-title">
-          Amigos ({friends.length})
+    <section aria-labelledby="community-members-title">
+      <div className="community-members-container">
+        <h2 id="friends-title" className="community-members-title">
+          Membros ({members.length})
         </h2>
 
-        <ul className="friends">
-          {friends.map((friend, index) => (
-            <li key={index} className="friend-container">
-              <figure className="friend-info">
+        <ul className="members">
+          {members.map((member, index) => (
+            <li key={index} className="member-container">
+              <figure className="member-info">
                 <Image
-                  className="friend-picture"
-                  src={friend.img}
-                  alt={`Foto de perfil de ${friend.name}`}
+                  className="member-picture"
+                  src={member.img}
+                  alt={`Foto de perfil de ${member.name}`}
                   width={80}
                   height={80}
                   priority
                 />
-                <figcaption className="friend-name-nickname">
-                  {friend.name}
+                <figcaption className="member-name-nickname">
+                  {member.name}
                 </figcaption>
               </figure>
             </li>
           ))}
         </ul>
 
-        <hr className="friend-hr-faded" />
+        <hr className="member-hr-faded" />
 
         <Link
-          className="see-all-friends"
+          className="see-all-members"
           href="/"
           aria-label="Ver todos os amigos"
         >
@@ -66,4 +66,4 @@ function FriendsComponent() {
   );
 }
 
-export { FriendsComponent };
+export { CommunityMembersComponent };
