@@ -45,7 +45,7 @@ function RelatedCommunitiesComponent() {
         ))}
       </ul>
 
-      {/* <hr className="related-community-hr-faded" />
+      <hr className="related-community-hr-faded" />
 
       <Link
         className="see-all-related-communities"
@@ -53,7 +53,7 @@ function RelatedCommunitiesComponent() {
         aria-label="Ver todas as comunidades relacionadas"
       >
         <span>Ver todas</span> <FiMoreHorizontal size={20} />
-      </Link> */}
+      </Link>
     </section>
   );
 }

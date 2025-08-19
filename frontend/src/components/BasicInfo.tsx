@@ -9,12 +9,16 @@ import "./basicinfo.css";
 import { FiMapPin } from "react-icons/fi";
 
 import { BiEdit } from "react-icons/bi";
-import { MdPersonOutline } from "react-icons/md";
-import { MdOutlineMail } from "react-icons/md";
+import {
+  MdPersonOutline,
+  MdPersonAddAlt,
+  MdOutlineMail,
+  MdOutlinePermMedia,
+  MdOutlineReport,
+} from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
 
 import { IoAlbumsOutline } from "react-icons/io5";
-import { MdOutlinePermMedia } from "react-icons/md";
 
 import { IoVideocamOutline } from "react-icons/io5";
 
@@ -23,8 +27,17 @@ import { TbMessage } from "react-icons/tb";
 
 import { IoGameControllerOutline } from "react-icons/io5";
 
+import { GoCircleSlash } from "react-icons/go";
+import { BsBan } from "react-icons/bs";
+
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { SiChatbot } from "react-icons/si";
+import { BiMessageSquareDots } from "react-icons/bi";
+import { TbMessageDots } from "react-icons/tb";
+
 // Images
 import Kon from "../../public/kon.jpg";
+import Marina from "../../public/marina.png";
 
 function BasicInfoComponent() {
   return (
@@ -53,6 +66,18 @@ function BasicInfoComponent() {
 
         <div className="links-container">
           <Link className="link" href={`/home`}>
+            <MdPersonAddAlt size={25} />
+            <span>Adicionar</span>
+          </Link>
+
+          <Link className="link" href={`/home`}>
+            <BsBan size={20} />
+            <span>Denunciar</span>
+          </Link>
+
+          <hr className="hr-faded" />
+
+          <Link className="link" href={`/home`}>
             <MdPersonOutline size={25} />
             <span>Perfil</span>
           </Link>
@@ -60,6 +85,11 @@ function BasicInfoComponent() {
           <Link className="link" href={`/`}>
             <HiOutlineMail size={22} />
             <span>Scraps (13)</span>
+          </Link>
+
+          <Link href={`/`} className="link">
+            <BiMessageSquareDots size={22} />
+            <span>Chat</span>
           </Link>
 
           <Link className="link" href={`/`}>

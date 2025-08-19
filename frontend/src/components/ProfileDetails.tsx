@@ -50,7 +50,7 @@ function ProfileDetailsComponent() {
             <h2 className="attribute-title">Sexy</h2>
             <div className="attribute-info">
               <IoHeart className="sexy-attribute-icon" size={25} />
-              <IoHeartHalf className="sexy-attribute-icon" size={25} />
+              <IoHeart className="sexy-attribute-icon" size={25} />
               <IoHeartOutline className="sexy-attribute-icon" size={25} />
             </div>
           </li>

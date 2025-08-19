@@ -12,6 +12,8 @@ import { MdOutlineTopic } from "react-icons/md";
 import { MdShortText } from "react-icons/md";
 
 import { BsChatLeftDots } from "react-icons/bs";
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
+
 import { PiChatText } from "react-icons/pi";
 import { MdOutlineReplyAll } from "react-icons/md";
 
@@ -48,7 +50,8 @@ function ForumComponent() {
             </h3>
 
             <p className="topic-info">
-              <BsChatLeftDots size={18} /> <span>55 Respostas</span>
+              <IoChatboxEllipsesOutline size={22} />
+              <span>55 Respostas</span>
             </p>
           </div>
         </div>
@@ -71,7 +74,8 @@ function ForumComponent() {
             </h3>
 
             <p className="topic-info">
-              <BsChatLeftDots size={18} /> <span>95 Respostas</span>
+              <IoChatboxEllipsesOutline size={22} />
+              <span>95 Respostas</span>
             </p>
           </div>
         </div>
@@ -94,7 +98,8 @@ function ForumComponent() {
             </h3>
 
             <p className="topic-info">
-              <BsChatLeftDots size={18} /> <span>20 Respostas</span>
+              <IoChatboxEllipsesOutline size={22} />
+              <span>20 Respostas</span>
             </p>
           </div>
         </div>

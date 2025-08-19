@@ -9,21 +9,20 @@ body,
   box-sizing: border-box;
 }
 
-/* Tema Claro */
+/* Tema Default - Claro */
 :root {
   --background-color: #d4dded;
+  --component-bg-color: #ffffff;
+  --nav-bg-color: #ffffff;
+  --footer-bg-color: #ffffff;
   --text-color: #353535;
-  --primary-color: #0070f3;
-  --secondary-color: #f0f0f0;
 }
 
-/* Tema escuro */
-/* [data-theme="dark"] {
-  --background-color: #121212;
-  --text-color: #0070f3;
-  --primary-color: #1e90ff;
-  --secondary-color: #1a1a1a;
-} */
+/* Tema Escuro */
+[data-theme="dark"] {
+  --background-color: #16193d;
+  --text-color: #353535;
+}
 
 body {
   display: flex;

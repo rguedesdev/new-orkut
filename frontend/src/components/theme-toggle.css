@@ -1,0 +1,66 @@
+.toggle-btn {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 9999px;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Bolinha */
+.toggle-btn::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  z-index: 2;
+}
+
+/* Ícone */
+.toggle-btn::after {
+  content: "🌙"; /* padrão dark mode */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  z-index: 1;
+  transition: left 0.3s, right 0.3s, content 0.3s;
+}
+
+/* Tema light */
+.toggle-btn.light {
+  background-color: #4b5563;
+}
+
+.toggle-btn.light::before {
+  transform: translateX(30px); /* bolinha para direita */
+}
+
+/* Tema light */
+.toggle-btn.light::after {
+  content: "🌙"; /* ícone do tema que será ativado */
+  left: 5px;
+  right: auto;
+}
+
+/* Tema dark */
+.toggle-btn.dark {
+  background-color: #facc15;
+}
+
+.toggle-btn.dark::before {
+  transform: translateX(0); /* bolinha esquerda */
+}
+
+/* Tema dark */
+.toggle-btn.dark::after {
+  content: "☀️"; /* ícone do tema que será ativado */
+  right: 5px;
+  left: auto;
+}
