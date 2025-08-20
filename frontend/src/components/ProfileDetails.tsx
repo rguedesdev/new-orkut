@@ -6,11 +6,17 @@ import { GoStarFill } from "react-icons/go";
 import { FaSmileBeam, FaRegSmileBeam } from "react-icons/fa";
 import { BsFillBoxFill, BsBox } from "react-icons/bs";
 import { IoHeart, IoHeartHalf, IoHeartOutline } from "react-icons/io5";
+import { RiArrowRightWideLine } from "react-icons/ri";
 
 function ProfileDetailsComponent() {
   return (
     <section>
       <div className="profile-details-container">
+        <div className="breadcrumbs">
+          <span>Home</span>
+          <RiArrowRightWideLine className="breadcrumbs-icon" size={20} />
+          <span className="breadcrumbs-active">Perfil</span>
+        </div>
         <h1 className="profiledetails-name-nickname">
           Reinaldo Guedes do Nascimento
         </h1>

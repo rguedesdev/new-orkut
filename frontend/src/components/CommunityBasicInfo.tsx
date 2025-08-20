@@ -14,6 +14,8 @@ import { GoCircleSlash } from "react-icons/go";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { RiCloseCircleLine } from "react-icons/ri";
 
+import { RiMegaphoneLine } from "react-icons/ri";
+
 // Images
 import Frieren from "../../public/frieren.jpg";
 
@@ -37,6 +39,11 @@ function CommunityBasicInfoComponent() {
           <p className="community-members">
             <MdOutlinePeopleAlt size={22} />
             <span>2.345 membros</span>
+          </p>
+
+          <p className="community-members">
+            <RiMegaphoneLine size={22} />
+            <span>Promover</span>
           </p>
         </div>
 

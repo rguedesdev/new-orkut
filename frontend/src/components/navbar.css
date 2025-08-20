@@ -27,7 +27,7 @@ nav ul {
   gap: 20px;
 }
 
-nav li {
+.nav-li {
   list-style: none;
   color: #025d92;
   position: relative;
@@ -38,7 +38,7 @@ nav li {
   cursor: pointer;
 }
 
-nav li::after {
+.nav-li::after {
   content: "";
   position: absolute;
   left: 0;
@@ -51,12 +51,12 @@ nav li::after {
   transition: transform 0.3s ease;
 }
 
-nav li:hover {
+.nav-li:hover {
   color: #ed2590;
   cursor: pointer;
 }
 
-nav li:hover::after {
+.nav-li:hover::after {
   transform: scaleX(1);
   cursor: pointer;
 }
@@ -178,11 +178,17 @@ nav li:hover::after {
 }
 
 .dropdown-menu li {
-  padding: 0 15px;
+  width: 100%;
+  padding: 10px 15px;
   font-size: 1rem;
   color: var(--text-color);
   cursor: pointer;
   transition: background 0.2s;
+
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  gap: 10px;
 }
 
 .dropdown-menu li:hover {

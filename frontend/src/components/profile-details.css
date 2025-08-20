@@ -10,6 +10,23 @@
   padding-bottom: 30px;
 }
 
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+
+  margin-bottom: 10px;
+}
+
+.breadcrumbs-icon {
+  color: #0377b9;
+}
+
+.breadcrumbs-active {
+  color: #ed2590;
+}
+
 .profiledetails-name-nickname {
   font-size: 2rem;
   font-weight: bold;

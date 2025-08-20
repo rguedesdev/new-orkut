@@ -51,12 +51,12 @@ function Navbar() {
 
       {autenticado === false ? (
         <ul>
-          <li>
+          <li className="nav-li">
             <RiHome3Line size={20} />
             <span>Home</span>
           </li>
 
-          <li>
+          <li className="nav-li">
             <RiUserCommunityLine size={20} />
             <span>Junte-se ao Orkkut</span>
           </li>
@@ -66,39 +66,39 @@ function Navbar() {
           <span>Mídias</span>
         </li> */}
 
-          <li>
+          <li className="nav-li">
             <TbHelpSquareRounded size={22} />
             <span>Ajuda</span>
           </li>
         </ul>
       ) : (
         <ul>
-          <li>
+          <li className="nav-li">
             <RiHome3Line size={20} />
             <span>Home</span>
           </li>
 
-          <li>
+          <li className="nav-li">
             <MdOutlineViewTimeline size={20} />
             <span>Timeline</span>
           </li>
 
-          <li>
+          <li className="nav-li">
             <CgProfile size={20} />
             <span>Perfil</span>
           </li>
 
-          <li>
+          <li className="nav-li">
             <LiaUserFriendsSolid size={20} />
             <span>Amigos</span>
           </li>
 
-          <li>
+          <li className="nav-li">
             <RiUserCommunityLine size={20} />
             <span>Comunidades</span>
           </li>
 
-          <li>
+          <li className="nav-li">
             <TbHelpSquareRounded size={22} />
             <span>Ajuda</span>
           </li>
