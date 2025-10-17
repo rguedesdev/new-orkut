@@ -1,0 +1,122 @@
+.profile-details-container {
+  width: 900px;
+  min-height: 400px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  padding-inline: 30px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+
+  margin-bottom: 10px;
+}
+
+.breadcrumbs-icon {
+  color: #0377b9;
+}
+
+.breadcrumbs-active {
+  color: #ed2590;
+}
+
+.profiledetails-name-nickname {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.thoughts {
+  position: relative; /* necessário para posicionar a ponta */
+  width: 100%;
+  height: auto;
+  background-color: #f0f5fc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* ponta do balão */
+.thoughts::before {
+  content: "";
+  position: absolute;
+  top: -10px; /* distancia do topo do balão */
+  left: 20px; /* distancia da esquerda onde a ponta começa */
+  border-width: 0 10px 10px 10px; /* cria triângulo invertido */
+  border-style: solid;
+  border-color: transparent transparent #f0f5fc transparent;
+}
+
+.attributes-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  gap: 20px;
+}
+
+.attribute-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.attribute-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.fans-attribute-icon {
+  color: #ffbf00;
+}
+
+.trusted-attribute-icon {
+  color: #ffb300;
+}
+
+.cool-attribute-icon {
+  color: #4382ff;
+}
+
+.sexy-attribute-icon {
+  color: rgb(204, 5, 5);
+}
+
+.user-info-extended-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.user-info-extended-container .info-pair {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.user-info-extended-container dt {
+  font-weight: bold;
+  width: 200px; /* largura fixa para alinhar todos os valores */
+}
+
+.user-info-extended-container dd {
+  margin: 0; /* remove a margem padrão */
+}
+
+.range-yes {
+  background-color: #f0f5fc;
+  margin-inline: -30px;
+  padding-inline: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

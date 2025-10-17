@@ -1,0 +1,121 @@
+.forum-container {
+  width: 900px;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  padding: 30px;
+}
+
+.top-forum-elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.forum-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.create-topic-btn {
+  width: 200px;
+  height: 35px;
+  color: #ffffff;
+  background-color: #025d92;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  transition: background-color 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.create-topic-btn:hover {
+  background-color: #0377b9;
+  cursor: pointer;
+}
+
+.create-topic-btn:active {
+  transform: scale(0.97);
+}
+
+.topic-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+/* .topic-container:hover {
+  background-color: #f0f5fc;
+  cursor: pointer;
+} */
+
+.forum-picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.topic-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.topic-title {
+  font-size: 1.11rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.topic-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  /* margin-left: 1px; */
+}
+
+.forum-hr-faded {
+  display: block;
+  border: none;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #0377b9, transparent);
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.see-all-foruns {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ed2590;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  margin-top: 20px;
+
+  transition: color 0.2s ease-in;
+}
+
+.see-all-foruns:hover {
+  color: #0377b9;
+  cursor: pointer;
+}

@@ -1,0 +1,95 @@
+.community-basic-info-container {
+  width: 300px;
+  min-height: 700px;
+
+  background-color: var(--component-bg-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+/* .picture-border {
+} */
+
+.community-picture {
+  width: 250px;
+  height: 375px;
+  border-radius: 5px;
+  object-fit: cover;
+
+  margin-bottom: 10px;
+}
+
+.community-basicinfo-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.community-members {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.community-hr-faded {
+  display: block;
+  border: none;
+  height: 1px; /* aumenta um pouco pra enxergar melhor */
+  width: 100%;
+  background: linear-gradient(to right, transparent, #0377b9, transparent);
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.community-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.community-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  transition: color 0.2s ease-in;
+}
+
+.community-link:hover {
+  color: #0377b9;
+  cursor: pointer;
+}
+
+.community-links-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.action-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.community-link-action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  transition: color 0.2s ease-in;
+}
+
+.community-link-action:hover {
+  color: #0377b9;
+  cursor: pointer;
+}

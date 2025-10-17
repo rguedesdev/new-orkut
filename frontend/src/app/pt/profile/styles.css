@@ -1,0 +1,23 @@
+main {
+  width: 1700px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.central-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
