@@ -1,5 +1,5 @@
 // Importando Schemas e Resolvers
-import { userTypeDefs, userResolvers } from "./modules/UserGQL.js";
+import { userTypeDefs, userResolvers } from './modules/UserGQL.js';
 
 // Combina schemas
 const schema = `

@@ -1,7 +1,7 @@
 // imports principais
-import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 dotenv.config();
 
 type ObjectId = mongoose.Types.ObjectId;
@@ -13,7 +13,7 @@ interface IUser {
 }
 
 const jwtSecret = process.env.JWT_SECRET;
-if (!jwtSecret) throw new Error("Variável de ambiente JWT_SECRET não definida");
+if (!jwtSecret) throw new Error('Variável de ambiente JWT_SECRET não definida');
 
 const createUserToken = (user: IUser) => {
   const token = jwt.sign(
@@ -22,7 +22,7 @@ const createUserToken = (user: IUser) => {
       name: user.name,
       email: user.email,
     },
-    jwtSecret
+    jwtSecret,
   );
 
   // Retorna apenas o Token

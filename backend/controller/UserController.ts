@@ -65,7 +65,43 @@ class UserController {
     email: string;
     password: string;
   }) {
-    console.log("Login realizado com sucesso!");
+    if (!email) throw new Error("O email é obrigatório!");
+
+    if (!password) throw new Error("A senha é obrigatória!");
+
+    // Procura o usuário pelo email
+    const user = await UserModel.findOne({ email: email });
+
+    if (!user) {
+      throw new Error("Usuário não encontrado!");
+    }
+
+    const passwordHash = user.password;
+
+    // `user.password` é o hash armazenado
+    const verifyPassword = await bcrypt.compare(password, passwordHash);
+
+    if (!verifyPassword) {
+      throw new Error("Senha incorreta!");
+    }
+
+    try {
+      const token = createUserToken(user);
+
+      return {
+        user: {
+          id: user._id,
+          name: user.name,
+          email: user.email,
+          token, // opcional: alguns projetos preferem o token separado, mas você definiu dentro do User
+        },
+        token, // token separado também, para o schema AuthPayload
+      };
+    } catch (error) {
+      // você pode lançar novamente para GraphQL capturar ou logar o erro
+      console.error("Erro ao logar usuário:", error);
+      throw new Error("Erro ao logar usuário");
+    }
   }
 }
 export default UserController;

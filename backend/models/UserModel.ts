@@ -1,5 +1,5 @@
-import OrkkutDB from "../db/NewOrkutConn.js";
-import { Schema } from "mongoose";
+import OrkkutDB from '../db/NewOrkutConn.js';
+import { Schema } from 'mongoose';
 
 interface IUser {
   name: string;
@@ -19,9 +19,9 @@ const userSchema = new Schema<IUser>(
       type: String,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-const UserModel = OrkkutDB.model("Users", userSchema);
+const UserModel = OrkkutDB.model('Users', userSchema);
 
 export { UserModel };

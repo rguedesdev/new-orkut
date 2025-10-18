@@ -18,10 +18,10 @@
   gap: 20px;
 }
 
-.welcome-box:hover {
-  transform: translateY(-5px); /* leve salto pra cima */
-  box-shadow: 0 0 12px 3px #025d92; /* sombra fluorescente verde */
-}
+/* .welcome-box:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 0 12px 3px #025d92; 
+} */
 
 .image-people {
   width: 350px;

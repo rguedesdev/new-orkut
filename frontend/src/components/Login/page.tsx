@@ -1,7 +1,47 @@
+"use client";
+
+import { useContext, useState } from "react";
 import Link from "next/link";
+import { UserContext } from "@/context/UserContext";
 import "./styles.css";
 
 function LoginComponent() {
+  const Context = useContext(UserContext);
+  if (!Context) return null;
+
+  const { signIn } = Context;
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    try {
+      if (!signIn) {
+        console.log("Contexto de autenticação não disponível!");
+        return;
+      }
+
+      const { user, token } = await signIn(email, password);
+
+      if (user && token) {
+        alert(`✅ Login bem-sucedido!\nBem-vindo, ${user.name}`);
+        console.log("Usuário logado:", user);
+        console.log("Token:", token);
+      } else {
+        alert("⚠️ Erro: resposta inesperada do servidor.");
+      }
+    } catch (err: any) {
+      console.error("Erro no login:", err);
+      alert(
+        `❌ Falha ao fazer login: ${
+          err.message || "Verifique suas credenciais"
+        }`
+      );
+    }
+  }
+
   return (
     <section aria-labelledby="login-title">
       <div className="login-box">
@@ -9,7 +49,7 @@ function LoginComponent() {
           Login
         </h1>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <fieldset>
             <legend>Informações de Login</legend>
 
@@ -21,6 +61,8 @@ function LoginComponent() {
                 id="my-email"
                 name="my-email"
                 placeholder="Digite seu email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -32,6 +74,8 @@ function LoginComponent() {
                 id="my-password"
                 name="my-password"
                 placeholder="Digite sua senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </fieldset>

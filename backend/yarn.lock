@@ -651,7 +651,7 @@
 
 "@fastify/cors@^11.1.0":
   version "11.1.0"
-  resolved "https://registry.yarnpkg.com/@fastify/cors/-/cors-11.1.0.tgz#09f79748f08f147d19cfc3f1807b59791bc77cf0"
+  resolved "https://registry.npmjs.org/@fastify/cors/-/cors-11.1.0.tgz"
   integrity sha512-sUw8ed8wP2SouWZTIbA7V2OQtMNpLj2W6qJOYhNdcmINTu6gsxVYXjQiM9mdi8UUDlcoDDJ/W2syPo1WB2QjYA==
   dependencies:
     fastify-plugin "^5.0.0"

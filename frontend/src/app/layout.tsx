@@ -6,6 +6,9 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar/page";
 import { Footer } from "@/components/Footer/page";
 
+// Providers do Context
+import { UserProvider } from "@/context/UserContext";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,9 +32,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="site-content">{children}</div>
-        <Footer />
+        <UserProvider>
+          <Navbar />
+          <div className="site-content">{children}</div>
+          <Footer />
+        </UserProvider>
       </body>
     </html>
   );
