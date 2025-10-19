@@ -45,7 +45,7 @@ function Navbar() {
   const Context = useContext(UserContext);
   if (!Context) return null;
 
-  const { userAuthenticated } = Context;
+  const { userAuthenticated, logout } = Context;
 
   return (
     <nav>
@@ -60,10 +60,10 @@ function Navbar() {
 
       {userAuthenticated === false ? (
         <ul>
-          <li className="nav-li">
+          {/* <li className="nav-li">
             <RiHome3Line size={20} />
             <span>Home</span>
-          </li>
+          </li> */}
 
           <li className="nav-li">
             <RiUserCommunityLine size={20} />
@@ -84,10 +84,10 @@ function Navbar() {
         <>
           {" "}
           <ul>
-            <li className="nav-li">
+            {/* <li className="nav-li">
               <RiHome3Line size={20} />
               <span>Home</span>
-            </li>
+            </li> */}
 
             <li className="nav-li">
               <MdOutlineViewTimeline size={20} />
@@ -147,18 +147,17 @@ function Navbar() {
                     <span>Configurações</span>
                   </li>
 
-                  <li>
+                  <li onClick={() => logout()}>
                     <TbLogout size={20} />
                     <span>Sair</span>
                   </li>
                 </ul>
               </div>
             </div>
+            <ThemeToggle />
           </div>
         </>
       )}
-
-      <ThemeToggle />
     </nav>
   );
 }

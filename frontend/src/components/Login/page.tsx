@@ -14,8 +14,12 @@ function LoginComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [spinner, setSpinner] = useState(false);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    setSpinner(true);
 
     try {
       if (!signIn) {
@@ -23,15 +27,7 @@ function LoginComponent() {
         return;
       }
 
-      const { user, token } = await signIn(email, password);
-
-      if (user && token) {
-        alert(`✅ Login bem-sucedido!\nBem-vindo, ${user.name}`);
-        console.log("Usuário logado:", user);
-        console.log("Token:", token);
-      } else {
-        alert("⚠️ Erro: resposta inesperada do servidor.");
-      }
+      await signIn(email, password);
     } catch (err: any) {
       console.error("Erro no login:", err);
       alert(
@@ -39,6 +35,8 @@ function LoginComponent() {
           err.message || "Verifique suas credenciais"
         }`
       );
+    } finally {
+      setSpinner(false);
     }
   }
 
@@ -80,13 +78,19 @@ function LoginComponent() {
             </div>
           </fieldset>
 
-          <button className="btn-enter" type="submit">
-            Entrar
-          </button>
+          {spinner ? (
+            <button className="btn-enter">
+              <span className="spinner"></span>
+            </button>
+          ) : (
+            <button className="btn-enter" type="submit">
+              Entrar
+            </button>
+          )}
         </form>
 
         <p className="recover-box">
-          <span>Esqueceu a Senha ou Email?</span>{" "}
+          <span>Esqueceu a senha ou email?</span>{" "}
           <Link href="/" className="recover">
             Clique Aqui!
           </Link>

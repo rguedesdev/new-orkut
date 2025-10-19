@@ -1,5 +1,5 @@
 main {
-  width: 1700px;
+  max-width: 1700px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -7,6 +7,8 @@ main {
 
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
   gap: 20px;
 }
 

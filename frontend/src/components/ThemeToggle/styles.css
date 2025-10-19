@@ -3,64 +3,60 @@
   width: 60px;
   height: 30px;
   border-radius: 9999px;
-  background-color: #ccc;
+  background-color: #cccccc;
   cursor: pointer;
   transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  margin-left: 20px;
 }
 
 /* Bolinha */
-.toggle-btn::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
+.icon-wrapper {
   width: 26px;
   height: 26px;
-  background: #ffffff;
   border-radius: 50%;
-  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background-color 0.3s;
   z-index: 2;
 }
 
-/* Ícone */
-.toggle-btn::after {
-  content: "🌙"; /* padrão dark mode */
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  z-index: 1;
-  transition: left 0.3s, right 0.3s, content 0.3s;
+/* Ícone dentro da bolinha */
+.icon {
+  width: 16px;
+  height: 16px;
+  transition: color 0.3s;
 }
 
-/* Tema light BG */
+/* Background para Bolinha Preta Ativa */
 .toggle-btn.light {
-  background-color: #4b5563;
+  background-color: #383838;
 }
 
-.toggle-btn.light::before {
-  transform: translateX(30px); /* bolinha para direita */
+.toggle-btn.light .icon-wrapper {
+  transform: translateX(30px);
+  background-color: #000000; /* bolinha branca */
 }
 
-/* Tema light */
-.toggle-btn.light::after {
-  content: "🌙"; /* ícone do tema que será ativado */
-  left: 5px;
-  right: auto;
+.toggle-btn.light .icon {
+  color: #ffffff; /* ícone preto */
 }
 
-/* Tema dark */
+/* Background para Bolinha Branca Ativa */
 .toggle-btn.dark {
-  background-color: #facc15;
+  background-color: #cccccc;
 }
 
-.toggle-btn.dark::before {
-  transform: translateX(0); /* bolinha esquerda */
+/* Bolinha Branca */
+.toggle-btn.dark .icon-wrapper {
+  transform: translateX(0);
+  background-color: #ffffff;
 }
 
-/* Tema dark */
-.toggle-btn.dark::after {
-  content: "☀️"; /* ícone do tema que será ativado */
-  right: 5px;
-  left: auto;
+/* Cor do icone de Sol */
+.toggle-btn.dark .icon {
+  color: #000000;
 }

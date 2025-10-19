@@ -19,10 +19,10 @@ function useAuth() {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+        api.defaults.headers.Authorization = `Bearer ${token}`;
         setUserAuthenticated(true);
       } catch (error) {
-        console.error("Erro ao analisar token:", error);
+        console.error("Erro ao configurar token:", error);
         localStorage.removeItem("token");
       }
     }
@@ -34,30 +34,46 @@ function useAuth() {
     password: string
   ): Promise<TAuthPayload> {
     const mutation = `
-      mutation signIn($input: signInInput!) {
-        signIn(input: $input) {
-          user {
-            id
-            name
-            email
-          }
-          token
+    mutation signIn($input: signInInput!) {
+      signIn(input: $input) {
+        user {
+          id
+          name
+          email
         }
+        token
       }
-    `;
+    }
+  `;
 
     const variables = { input: { email, password } };
 
-    // Faz a requisição GraphQL
-    const response = await api.post("/graphql", { query: mutation, variables });
+    try {
+      const response = await api.post("/graphql", {
+        query: mutation,
+        variables,
+      });
+      const signInData: TAuthPayload = response.data.data.signIn;
 
-    // Pega diretamente o signIn do GraphQL
-    const signInData: TAuthPayload = response.data.data.signIn;
+      if (!signInData?.token || !signInData?.user) {
+        throw new Error("Credenciais inválidas");
+      }
 
-    // Autentica o usuário e configura token
-    await authUser(signInData);
+      // Só autentica se veio token e user válido
+      await authUser(signInData);
 
-    return signInData;
+      return signInData;
+    } catch (err) {
+      console.error("Erro no login:", err);
+      throw err; // não autentica, apenas propaga o erro
+    }
+  }
+
+  async function logout() {
+    localStorage.removeItem("token");
+    localStorage.setItem("theme", "light");
+    setUserAuthenticated(false);
+    router.push("/");
   }
 
   // Configura autenticação local e Axios
@@ -84,6 +100,7 @@ function useAuth() {
   return {
     userAuthenticated,
     signIn,
+    logout,
   };
 }
 

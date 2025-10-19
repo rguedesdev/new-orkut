@@ -14,6 +14,7 @@ interface IUserContext {
     user: { id: string; name: string; email: string };
     token: string;
   }>;
+  logout: () => void;
 }
 
 // Intância do UserContext com valor inicial nulo
@@ -24,10 +25,10 @@ interface IChildren {
 }
 
 function UserProvider({ children }: IChildren) {
-  const { userAuthenticated, signIn } = useAuth();
+  const { userAuthenticated, signIn, logout } = useAuth();
 
   return (
-    <UserContext.Provider value={{ userAuthenticated, signIn }}>
+    <UserContext.Provider value={{ userAuthenticated, signIn, logout }}>
       {children}
     </UserContext.Provider>
   );

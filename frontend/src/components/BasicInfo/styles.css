@@ -1,5 +1,5 @@
 .basic-info-container {
-  width: 300px;
+  min-width: 300px;
   min-height: 700px;
 
   background-color: #ffffff;

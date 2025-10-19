@@ -1,5 +1,5 @@
 .profile-details-container {
-  width: 900px;
+  min-width: 900px;
   min-height: 400px;
   background-color: #ffffff;
   border-radius: 10px;

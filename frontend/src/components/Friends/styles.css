@@ -1,5 +1,5 @@
 .friends-container {
-  width: 460px;
+  min-width: 460px;
   height: auto;
   background-color: #fff;
   border-radius: 10px;
