@@ -1,4 +1,4 @@
-.forum-container {
+.forumContainer {
   width: 900px;
   height: auto;
   background-color: #ffffff;
@@ -8,19 +8,19 @@
   padding: 30px;
 }
 
-.top-forum-elements {
+.topForumElements {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.forum-title {
+.forumTitle {
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.create-topic-btn {
+.createTopicBtn {
   width: 200px;
   height: 35px;
   color: #ffffff;
@@ -37,16 +37,16 @@
   transition: background-color 0.2s ease-in, transform 0.2s ease-in;
 }
 
-.create-topic-btn:hover {
+.createTopicBtn:hover {
   background-color: #0377b9;
   cursor: pointer;
 }
 
-.create-topic-btn:active {
+.createTopicBtn:active {
   transform: scale(0.97);
 }
 
-.topic-container {
+.topicContainer {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -58,20 +58,20 @@
   cursor: pointer;
 } */
 
-.forum-picture {
+.forumPicture {
   width: 60px;
   height: 60px;
   border-radius: 4px;
   object-fit: cover;
 }
 
-.topic-texts {
+.topicTexts {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.topic-title {
+.topicTitle {
   font-size: 1.11rem;
   font-weight: bold;
   display: flex;
@@ -80,7 +80,7 @@
   gap: 10px;
 }
 
-.topic-info {
+.topicInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -88,7 +88,7 @@
   /* margin-left: 1px; */
 }
 
-.forum-hr-faded {
+.forumHrFaded {
   display: block;
   border: none;
   height: 1px;
@@ -99,7 +99,7 @@
   margin-bottom: 30px;
 }
 
-.see-all-foruns {
+.seeAllForuns {
   font-size: 1.1rem;
   font-weight: bold;
   color: #ed2590;
@@ -115,7 +115,7 @@
   transition: color 0.2s ease-in;
 }
 
-.see-all-foruns:hover {
+.seeAllForuns:hover {
   color: #0377b9;
   cursor: pointer;
 }

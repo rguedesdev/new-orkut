@@ -3,7 +3,9 @@
 import { useContext, useState } from "react";
 import Link from "next/link";
 import { UserContext } from "@/context/UserContext";
-import "./styles.css";
+
+// Style Sheet CSS
+import styles from "./login.module.css";
 
 function LoginComponent() {
   const Context = useContext(UserContext);
@@ -41,22 +43,22 @@ function LoginComponent() {
   }
 
   return (
-    <section aria-labelledby="login-title">
-      <div className="login-box">
-        <h1 id="login-title" className="login-title">
+    <section aria-labelledby={styles.loginTitle}>
+      <div className={styles.loginBox}>
+        <h1 id="loginTitle" className={styles.loginTitle}>
           Login
         </h1>
 
         <form onSubmit={handleSubmit}>
           <fieldset>
-            <legend>Informações de Login</legend>
+            {/* <legend>Informações de Login</legend> */}
 
-            <div className="input-container">
+            <div className={styles.inputContainer}>
               <label htmlFor="my-email">Email</label>
               <input
-                className="my-inputs"
+                className={styles.myInputs}
                 type="email"
-                id="my-email"
+                id="myEmail"
                 name="my-email"
                 placeholder="Digite seu email"
                 value={email}
@@ -64,12 +66,12 @@ function LoginComponent() {
               />
             </div>
 
-            <div className="input-container">
+            <div className={styles.inputContainer}>
               <label htmlFor="my-password">Senha</label>
               <input
-                className="my-inputs"
+                className={styles.myInputs}
                 type="password"
-                id="my-password"
+                id="myPassword"
                 name="my-password"
                 placeholder="Digite sua senha"
                 value={password}
@@ -79,28 +81,28 @@ function LoginComponent() {
           </fieldset>
 
           {spinner ? (
-            <button className="btn-enter">
-              <span className="spinner"></span>
+            <button className={styles.btnEnter}>
+              <span className={styles.spinner}></span>
             </button>
           ) : (
-            <button className="btn-enter" type="submit">
+            <button className={styles.btnEnter} type="submit">
               Entrar
             </button>
           )}
         </form>
 
-        <p className="recover-box">
+        <p className={styles.recoverBox}>
           <span>Esqueceu a senha ou email?</span>{" "}
-          <Link href="/" className="recover">
+          <Link href="/" className={styles.recover}>
             Clique Aqui!
           </Link>
         </p>
       </div>
 
-      <aside className="not-member-box">
-        <p className="signup-box">
-          <span className="not-yet-a-member">Ainda não é membro?</span>{" "}
-          <Link href="/" className="sign-up">
+      <aside className={styles.notMemberBox}>
+        <p className={styles.signupBox}>
+          <span className={styles.notYetAMember}>Ainda não é membro?</span>{" "}
+          <Link href="/" className={styles.signUp}>
             Junte-se ao Orkut!
           </Link>
         </p>

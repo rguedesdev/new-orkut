@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./basicinfo.module.css";
 
 // Components
 import { FiMapPin } from "react-icons/fi";
@@ -42,10 +42,10 @@ import Marina from "../../public/marina.png";
 function BasicInfoComponent() {
   return (
     <section>
-      <div className="basic-info-container">
-        <div className="profile-border">
+      <div className={styles.basicInfoContainer}>
+        <div className={styles.profileBorder}>
           <Image
-            className="profile-image"
+            className={styles.profileImage}
             src={Kon}
             alt="Profile Image"
             width={200}
@@ -54,60 +54,60 @@ function BasicInfoComponent() {
           />
         </div>
 
-        <div className="personal-info">
-          <h1 className="basicinfo-name-nickname">Reinaldo Guedes</h1>
-          <p className="gender-marital-status">Masculino, Solteiro(a)</p>
-          <p className="state-country">
+        <div className={styles.personalInfo}>
+          <h1 className={styles.basicInfoNameNickname}>Reinaldo Guedes</h1>
+          <p className={styles.genderMaritalStatus}>Masculino, Solteiro(a)</p>
+          <p className={styles.stateCountry}>
             <FiMapPin size={15} /> <span>São Paulo, Brasil</span>
           </p>
         </div>
 
-        <hr className="hr-faded" />
+        <hr className={styles.hrFaded} />
 
-        <div className="links-container">
-          <Link className="link" href={`/home`}>
+        <div className={styles.linksContainer}>
+          <Link className={styles.link} href={`/home`}>
             <MdPersonAddAlt size={25} />
             <span>Adicionar</span>
           </Link>
 
-          <Link className="link" href={`/home`}>
+          <Link className={styles.link} href={`/home`}>
             <BsBan size={20} />
             <span>Denunciar</span>
           </Link>
 
-          <hr className="hr-faded" />
+          <hr className={styles.hrFaded} />
 
-          <Link className="link" href={`/home`}>
+          <Link className={styles.link} href={`/home`}>
             <MdPersonOutline size={25} />
             <span>Perfil</span>
           </Link>
 
-          <Link className="link" href={`/`}>
+          <Link className={styles.link} href={`/`}>
             <HiOutlineMail size={22} />
             <span>Scraps (13)</span>
           </Link>
 
-          <Link href={`/`} className="link">
+          <Link href={`/`} className={styles.link}>
             <BiMessageSquareDots size={22} />
             <span>Chat</span>
           </Link>
 
-          <Link className="link" href={`/`}>
+          <Link className={styles.link} href={`/`}>
             <MdOutlinePermMedia size={22} />
             <span>Fotos (12)</span>
           </Link>
 
-          <Link className="link" href={`/`}>
+          <Link className={styles.link} href={`/`}>
             <IoVideocamOutline size={25} />
             <span>Vídeos (2)</span>
           </Link>
 
-          <Link className="link" href={`/`}>
+          <Link className={styles.link} href={`/`}>
             <TbMessage size={22} />
             <span>Depoimentos (2)</span>
           </Link>
 
-          <Link className="link" href={`/`}>
+          <Link className={styles.link} href={`/`}>
             <IoGameControllerOutline size={22} />
             <span>Jogos (2)</span>
           </Link>

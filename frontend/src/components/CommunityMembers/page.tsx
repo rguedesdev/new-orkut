@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./communitymembers.module.css";
 
 // Icons
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -25,25 +25,25 @@ function CommunityMembersComponent() {
   ];
 
   return (
-    <section aria-labelledby="community-members-title">
-      <div className="community-members-container">
-        <h2 id="friends-title" className="community-members-title">
+    <section aria-labelledby={styles.communityMembersTitle}>
+      <div className={styles.communityMembersContainer}>
+        <h2 id="friends-title" className={styles.communityMembersTitle}>
           Membros ({members.length})
         </h2>
 
-        <ul className="members">
+        <ul className={styles.members}>
           {members.map((member, index) => (
-            <li key={index} className="member-container">
-              <figure className="member-info">
+            <li key={index} className={styles.memberContainer}>
+              <figure className={styles.memberInfo}>
                 <Image
-                  className="member-picture"
+                  className={styles.memberPicture}
                   src={member.img}
                   alt={`Foto de perfil de ${member.name}`}
                   width={80}
                   height={80}
                   priority
                 />
-                <figcaption className="member-name-nickname">
+                <figcaption className={styles.memberNameNickname}>
                   {member.name}
                 </figcaption>
               </figure>
@@ -51,10 +51,10 @@ function CommunityMembersComponent() {
           ))}
         </ul>
 
-        <hr className="member-hr-faded" />
+        <hr className={styles.memberHrFaded} />
 
         <Link
-          className="see-all-members"
+          className={styles.seeAllMembers}
           href="/"
           aria-label="Ver todos os amigos"
         >

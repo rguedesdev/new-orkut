@@ -1,4 +1,4 @@
-.login-box {
+.loginBox {
   width: 350px;
   height: 380px;
   background-color: var(--component-bg-color);
@@ -12,12 +12,12 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.login-box:hover {
+.loginBox:hover {
   transform: scaleY(-5px);
   box-shadow: 0 0 12px 3px #025d92;
 }
 
-.login-title {
+.loginTitle {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
@@ -25,19 +25,19 @@
   margin-bottom: 20px;
 }
 
-.login-inputs {
+.loginInputs {
   display: flex;
   flex-direction: column;
 
   gap: 10px;
 }
 
-.input-container {
+.inputContainer {
   display: flex;
   flex-direction: column;
 }
 
-.my-inputs {
+.myInputs {
   background-color: #d4dded;
   border: 2px solid transparent;
   border-radius: 4px;
@@ -50,11 +50,11 @@
   transition: border-color 0.15s ease, outline 0.15s ease, box-shadow 0.15s ease;
 }
 
-.my-inputs::placeholder {
+.myInputs::placeholder {
   color: #666565;
 }
 
-.my-inputs:focus {
+.myInputs:focus {
   border-color: #7fbfff;
   outline: 2px solid #7fbfff;
   outline-offset: 0.8px;
@@ -62,7 +62,7 @@
   box-shadow: none;
 }
 
-.btn-enter {
+.btnEnter {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,16 +78,16 @@
   transition: background-color 0.2s ease-in, transform 0.2s ease-in;
 }
 
-.btn-enter:hover {
+.btnEnter:hover {
   background-color: #0377b9;
   cursor: pointer;
 }
 
-.btn-enter:active {
+.btnEnter:active {
   transform: scale(0.97);
 }
 
-.recover-box {
+.recoverBox {
   margin-top: 20px;
   display: flex;
   gap: 3px;
@@ -103,7 +103,7 @@
   cursor: pointer;
 }
 
-.not-member-box {
+.notMemberBox {
   width: 350px;
   height: 160px;
   background-color: var(--component-bg-color);
@@ -116,12 +116,12 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.not-member-box:hover {
+.notMemberBox:hover {
   transform: scaleY(-5px);
   box-shadow: 0 0 12px 3px #025d92;
 }
 
-.signup-box {
+.signupBox {
   display: flex;
   flex-direction: column;
   justify-content: center; /* centraliza vertical */
@@ -130,17 +130,17 @@
   height: 100%; /* ocupa toda altura do .not-member-box */
 }
 
-.not-yet-a-member {
+.notYetAMember {
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.sign-up {
+.signUp {
   color: #ed2590;
   font-weight: bold;
 }
 
-.sign-up:hover {
+.signUp:hover {
   text-decoration: underline;
   cursor: pointer;
 }

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./friends.module.css";
 
 // Icons
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -25,25 +25,25 @@ function FriendsComponent() {
   ];
 
   return (
-    <section aria-labelledby="friends-title">
-      <div className="friends-container">
-        <h2 id="friends-title" className="friend-title">
+    <section aria-labelledby={styles.friendsTitle}>
+      <div className={styles.friendsContainer}>
+        <h2 id={styles.friendTitle} className={styles.friendTitle}>
           Amigos ({friends.length})
         </h2>
 
-        <ul className="friends">
+        <ul className={styles.friends}>
           {friends.map((friend, index) => (
-            <li key={index} className="friend-container">
-              <figure className="friend-info">
+            <li key={index} className={styles.friendContainer}>
+              <figure className={styles.friendInfo}>
                 <Image
-                  className="friend-picture"
+                  className={styles.friendPicture}
                   src={friend.img}
                   alt={`Foto de perfil de ${friend.name}`}
                   width={80}
                   height={80}
                   priority
                 />
-                <figcaption className="friend-name-nickname">
+                <figcaption className={styles.friendNameNickname}>
                   {friend.name}
                 </figcaption>
               </figure>
@@ -51,10 +51,10 @@ function FriendsComponent() {
           ))}
         </ul>
 
-        <hr className="friend-hr-faded" />
+        <hr className={styles.friendHrFaded} />
 
         <Link
-          className="see-all-friends"
+          className={styles.seeAllFriends}
           href="/"
           aria-label="Ver todos os amigos"
         >

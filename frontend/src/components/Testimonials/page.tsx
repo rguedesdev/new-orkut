@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./testimonials.module.css";
 
 // Icons
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -39,41 +39,43 @@ function TestimonialsComponent() {
   ];
 
   return (
-    <section aria-labelledby="testimonial-title">
-      <div className="testimonials-container">
-        <h2 id="testimonial-title" className="testimonial-title">
+    <section aria-labelledby={styles.testimonialTitle}>
+      <div className={styles.testimonialsContainer}>
+        <h2 id={styles.testimonialTitle} className={styles.testimonialTitle}>
           Depoimentos ({testimonials.length})
         </h2>
 
-        <div className="testimonials">
+        <div className={styles.testimonials}>
           {testimonials.map((testimonial, index) => (
             <div key={index}>
-              <div className="testimonial">
+              <div className={styles.testimonial}>
                 <Image
-                  className="testimonial-image"
+                  className={styles.testimonialImage}
                   alt={testimonial.imageAlt}
                   src={Kon}
                   width={100}
                   height={100}
                   priority
                 />
-                <div className="testimonial-container">
-                  <h3 className="testimonial-name-nickname">
+                <div className={styles.testimonialContainer}>
+                  <h3 className={styles.testimonialNameNickname}>
                     {testimonial.name}:
                   </h3>
-                  <p className="testimonial-text">{testimonial.text}</p>
+                  <p className={styles.testimonialText}>{testimonial.text}</p>
                 </div>
               </div>
 
-              {index < testimonials.length - 1 && <hr className="hr-faded" />}
+              {index < testimonials.length - 1 && (
+                <hr className={styles.testimonialHrFaded} />
+              )}
             </div>
           ))}
         </div>
 
-        <hr className="testimonial-hr-faded" />
+        <hr className={styles.testimonialHrFaded} />
 
         <Link
-          className="see-all-testimonials"
+          className={styles.seeAllTestimonials}
           href={`/`}
           aria-label="Ver todos os depoimentos"
         >

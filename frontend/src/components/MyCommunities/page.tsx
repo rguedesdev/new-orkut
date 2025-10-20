@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Sytle Sheet CSS
-import "./styles.css";
+import styles from "./mycommunities.module.css";
 
 // Icons
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -25,22 +25,24 @@ function MyCommunitiesComponent() {
   ];
 
   return (
-    <section className="communities-container">
-      <h2 className="community-title">Comunidades ({communities.length})</h2>
+    <section className={styles.communitiesContainer}>
+      <h2 className={styles.communityTitle}>
+        Comunidades ({communities.length})
+      </h2>
 
-      <ul className="communities">
+      <ul className={styles.communities}>
         {communities.map((community, index) => (
-          <li key={index} className="community-container">
-            <figure className="community-info">
+          <li key={index} className={styles.communityContainer}>
+            <figure className={styles.communityInfo}>
               <Image
-                className="community-picture"
+                className={styles.communityPicture}
                 src={community.img}
                 alt={community.name}
                 width={0}
                 height={0}
                 priority
               />
-              <figcaption className="community-name">
+              <figcaption className={styles.communityName}>
                 {community.name}
               </figcaption>
             </figure>
@@ -48,10 +50,10 @@ function MyCommunitiesComponent() {
         ))}
       </ul>
 
-      <hr className="community-hr-faded" />
+      <hr className={styles.communityHrFaded} />
 
       <Link
-        className="see-all-communities"
+        className={styles.seeAllCommunities}
         href={`/`}
         aria-label="Ver todas as comunidades"
       >

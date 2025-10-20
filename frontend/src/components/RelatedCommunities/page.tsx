@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Sytle Sheet CSS
-import "./styles.css";
+import styles from "./relatedcommunities.module.css";
 
 // Icons
 import { FiMoreHorizontal } from "react-icons/fi";
@@ -22,22 +22,22 @@ function RelatedCommunitiesComponent() {
   ];
 
   return (
-    <section className="related-communities-container">
-      <h2 className="related-community-title">Comunidades Relacionadas</h2>
+    <section className={styles.relatedCommunitiesContainer}>
+      <h2 className={styles.relatedCommunityTitle}>Comunidades Relacionadas</h2>
 
-      <ul className="related-communities">
+      <ul className={styles.relatedCommunities}>
         {relatedCommunities.map((relatedCommunity, index) => (
-          <li key={index} className="related-community-container">
-            <figure className="related-community-info">
+          <li key={index} className={styles.relatedCommunityContainer}>
+            <figure className={styles.relatedCommunityInfo}>
               <Image
-                className="related-community-picture"
+                className={styles.relatedCommunityPicture}
                 src={relatedCommunity.img}
                 alt={relatedCommunity.name}
                 width={0}
                 height={0}
                 priority
               />
-              <figcaption className="related-community-name">
+              <figcaption className={styles.relatedCommunityName}>
                 {relatedCommunity.name}
               </figcaption>
             </figure>
@@ -45,10 +45,10 @@ function RelatedCommunitiesComponent() {
         ))}
       </ul>
 
-      <hr className="related-community-hr-faded" />
+      <hr className={styles.relatedCommunityHrFaded} />
 
       <Link
-        className="see-all-related-communities"
+        className={styles.seeAllRelatedCommunities}
         href={`/`}
         aria-label="Ver todas as comunidades relacionadas"
       >

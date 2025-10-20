@@ -1,14 +1,14 @@
 "use client";
 
 // Imports Principais
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import Image from "next/image";
 
 // UserContext
 import { UserContext } from "@/context/UserContext";
 
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./navbar.module.css";
 
 // Components
 import { ThemeToggle } from "../ThemeToggle/page";
@@ -47,13 +47,17 @@ function Navbar() {
 
   const { userAuthenticated, logout } = Context;
 
+  useEffect(() => {
+    setDropdownOpen(false);
+  }, []);
+
   return (
-    <nav>
+    <nav className={styles.navbar}>
       <Image
-        className="logo"
+        className={styles.logo}
         src={Logo3}
         alt="Logo"
-        width={0}
+        width={120}
         height={0}
         priority
       />
@@ -65,7 +69,7 @@ function Navbar() {
             <span>Home</span>
           </li> */}
 
-          <li className="nav-li">
+          <li className={styles.navLi}>
             <RiUserCommunityLine size={20} />
             <span>Junte-se ao Orkkut</span>
           </li>
@@ -75,7 +79,7 @@ function Navbar() {
           <span>Mídias</span>
         </li> */}
 
-          <li className="nav-li">
+          <li className={styles.navLi}>
             <TbHelpSquareRounded size={22} />
             <span>Ajuda</span>
           </li>
@@ -89,39 +93,39 @@ function Navbar() {
               <span>Home</span>
             </li> */}
 
-            <li className="nav-li">
+            <li className={styles.navLi}>
               <MdOutlineViewTimeline size={20} />
               <span>Timeline</span>
             </li>
 
-            <li className="nav-li">
+            <li className={styles.navLi}>
               <CgProfile size={20} />
               <span>Perfil</span>
             </li>
 
-            <li className="nav-li">
+            <li className={styles.navLi}>
               <LiaUserFriendsSolid size={20} />
               <span>Amigos</span>
             </li>
 
-            <li className="nav-li">
+            <li className={styles.navLi}>
               <RiUserCommunityLine size={20} />
               <span>Comunidades</span>
             </li>
 
-            <li className="nav-li">
+            <li className={styles.navLi}>
               <TbHelpSquareRounded size={22} />
               <span>Ajuda</span>
             </li>
           </ul>
-          <div className="search-container">
-            <IoSearch className="search-icon" size={20} />
+          <div className={styles.searchContainer}>
+            <IoSearch className={styles.searchIcon} size={20} />
             <input type="search" placeholder="Buscar no Orkkut" />
           </div>
-          <div className="nav-profile-info-container">
-            <div className="nav-profile-picture-border">
+          <div className={styles.navProfileInfoContainer}>
+            <div className={styles.navProfilePictureBorder}>
               <Image
-                className="nav-profile-picture"
+                className={styles.navProfilePicture}
                 src={Kon}
                 alt="Profile Picture"
                 width={0}
@@ -129,18 +133,22 @@ function Navbar() {
                 priority
               />
             </div>
-            <h3 className="nav-name-nickname">Reinaldo Guedes</h3>
+            <h3 className={styles.navNameNickname}>Reinaldo Guedes</h3>
 
             {/* seta que abre/fecha dropdown */}
-            <div className="dropdown-container">
+            <div className={styles.dropDownContainer}>
               <RiArrowDownWideLine
-                className="down-arrow"
+                className={styles.downArrow}
                 size={25}
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               />
 
               {/* menu dropdown */}
-              <div className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}>
+              <div
+                className={`${styles.dropDownMenu} ${
+                  dropdownOpen ? styles.show : ""
+                }`}
+              >
                 <ul>
                   <li>
                     <BsGear size={20} />

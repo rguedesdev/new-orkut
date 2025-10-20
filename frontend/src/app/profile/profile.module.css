@@ -1,5 +1,5 @@
-main {
-  width: 1700px;
+.mainContainer {
+  max-width: 1700px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -7,16 +7,17 @@ main {
 
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 20px;
 }
 
-.community-central-container {
+.centralContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.community-right-container {
+.rightContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;

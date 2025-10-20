@@ -5,11 +5,11 @@ import Image from "next/image";
 import Who from "../../../public/who-do-you-know.png";
 
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./welcome.module.css";
 
 function WelcomeComponent() {
   return (
-    <section className="welcome-box">
+    <section className={styles.welcomeBox}>
       <p>
         O Orkut é uma rede social para conhecer pessoas e fazer amigos.
         Cadastre-se gratuitamente e conecte-se com seus amigos, familiares e
@@ -17,7 +17,7 @@ function WelcomeComponent() {
         mantenha contato com quem você gosta.
       </p>
       <Image
-        className="image-people"
+        className={styles.imagePeople}
         src={Who}
         alt="Who"
         width={0}

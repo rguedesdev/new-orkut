@@ -1,7 +1,7 @@
-.friends-container {
+.communitiesContainer {
   min-width: 460px;
   height: auto;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -12,12 +12,12 @@
   gap: 20px;
 }
 
-.friend-title {
+.communityTitle {
   font-size: 1.4rem;
   font-weight: bold;
 }
 
-.friends {
+.communities {
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -28,7 +28,7 @@
   gap: 30px;
 }
 
-.friend-container {
+.communityContainer {
   display: flex;
   flex-direction: column;
   align-items: center; /* centraliza imagem + nome dentro do bloco */
@@ -37,29 +37,29 @@
   gap: 5px; /* espaço entre imagem e nome */
 }
 
-.friend-info {
+.communityInfo {
   display: flex;
   flex-direction: column;
   align-items: center; /* centraliza imagem + nome horizontalmente */
   gap: 5px; /* espaço entre imagem e nome */
 }
 
-.friend-picture {
+.communityPicture {
   width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  height: 120px;
+  border-radius: 5px;
   object-fit: cover;
   display: block;
 }
 
-.friend-name-nickname {
+.communityName {
   text-align: center; /* centraliza o nome dentro do bloco */
   margin: 0;
   font-size: 0.95rem;
   word-break: break-word; /* evita que nomes longos quebrem o layout */
 }
 
-.friend-hr-faded {
+.communityHrFaded {
   display: block;
   border: none;
   height: 1px; /* aumenta um pouco pra enxergar melhor */
@@ -70,7 +70,7 @@
   margin-bottom: -20px;
 }
 
-.see-all-friends {
+.seeAllCommunities {
   font-size: 1.1rem;
   font-weight: bold;
   color: #ed2590;
@@ -86,7 +86,7 @@
   transition: color 0.2s ease-in;
 }
 
-.see-all-friends:hover {
+.seeAllCommunities:hover {
   color: #0377b9;
   cursor: pointer;
 }

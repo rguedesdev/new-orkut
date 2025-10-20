@@ -1,9 +1,9 @@
-import "./styles.css";
+import styles from "./loading.module.css";
 
 function Loading() {
   return (
-    <section className="loading-container">
-      <span className="loader"></span>
+    <section className={styles.loadingContainer}>
+      <span className={styles.loader}></span>
     </section>
   );
 }

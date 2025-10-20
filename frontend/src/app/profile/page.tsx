@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { UserContext } from "@/context/UserContext";
 
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./profile.module.css";
 
 // Components
 import { Loading } from "@/components/Loading/page";
@@ -46,13 +46,13 @@ function Profile() {
   }
 
   return (
-    <main>
+    <main className={styles.mainContainer}>
       <BasicInfoComponent />
-      <div className="central-container">
+      <div className={styles.centralContainer}>
         <ProfileDetailsComponent />
         <TestimonialsComponent />
       </div>
-      <div className="right-container">
+      <div className={styles.rightContainer}>
         <FriendsComponent />
         <MyCommunitiesComponent />
       </div>

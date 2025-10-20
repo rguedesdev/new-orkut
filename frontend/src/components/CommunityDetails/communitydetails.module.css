@@ -1,4 +1,4 @@
-.community-details-container {
+.communityDetailsContainer {
   width: 900px;
   min-height: 250px;
   background-color: #ffffff;
@@ -10,41 +10,41 @@
   padding-bottom: 30px;
 }
 
-.community-name {
+.communityName {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.community-info-container {
+.communityInfoContainer {
   display: flex; /* Colunas lado a lado */
   gap: 40px; /* Espaço entre colunas */
 }
 
-.community-info-column {
+.communityInfoColumn {
   flex: 1; /* Cada coluna ocupa metade do espaço disponível */
 }
 
-.community-info-line {
+.communityInfoLine {
   display: grid;
   grid-template-columns: 200px 1fr; /* 200px para o label, resto para o value */
   align-items: center;
   margin-bottom: 8px;
 }
 
-.community-info-line-label {
+.communityInfoLineLabel {
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 6px; /* espaço entre ícone e texto */
 }
 
-.community-info-line-value {
+.communityInfoLineValue {
   display: flex;
   align-items: center;
 }
 
-.communitydetails-hr-faded {
+.communityDetailsHrFaded {
   display: block;
   border: none;
   height: 1px;

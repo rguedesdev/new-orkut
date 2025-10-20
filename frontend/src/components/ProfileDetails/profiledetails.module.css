@@ -1,4 +1,4 @@
-.profile-details-container {
+.profileDetailsContainer {
   min-width: 900px;
   min-height: 400px;
   background-color: #ffffff;
@@ -19,15 +19,15 @@
   margin-bottom: 10px;
 }
 
-.breadcrumbs-icon {
+.breadcrumbsIcon {
   color: #0377b9;
 }
 
-.breadcrumbs-active {
+.breadcrumbsAactive {
   color: #ed2590;
 }
 
-.profiledetails-name-nickname {
+.profileDetailsNameNickname {
   font-size: 2rem;
   font-weight: bold;
 }
@@ -52,7 +52,7 @@
   border-color: transparent transparent #f0f5fc transparent;
 }
 
-.attributes-container {
+.attributesContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -62,58 +62,58 @@
   gap: 20px;
 }
 
-.attribute-container {
+.attributeContainer {
   display: flex;
   flex-direction: column;
 
   gap: 5px;
 }
 
-.attribute-info {
+.attributeInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
 }
 
-.fans-attribute-icon {
+.fansAttributeIcon {
   color: #ffbf00;
 }
 
-.trusted-attribute-icon {
+.trustedAttributeIcon {
   color: #ffb300;
 }
 
-.cool-attribute-icon {
+.coolAttributeIcon {
   color: #4382ff;
 }
 
-.sexy-attribute-icon {
+.sexyAttributeIcon {
   color: rgb(204, 5, 5);
 }
 
-.user-info-extended-container {
+.userInfoExtendedContainer {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.user-info-extended-container .info-pair {
+.userInfoExtendedContainer .infoPair {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-.user-info-extended-container dt {
+.userInfoExtendedContainer dt {
   font-weight: bold;
   width: 200px; /* largura fixa para alinhar todos os valores */
 }
 
-.user-info-extended-container dd {
+.userInfoExtendedContainer dd {
   margin: 0; /* remove a margem padrão */
 }
 
-.range-yes {
+.rangeYes {
   background-color: #f0f5fc;
   margin-inline: -30px;
   padding-inline: 30px;

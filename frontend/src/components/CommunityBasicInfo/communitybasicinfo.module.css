@@ -1,4 +1,4 @@
-.community-basic-info-container {
+.communityBasicInfoContainer {
   width: 300px;
   min-height: 700px;
 
@@ -14,7 +14,7 @@
 /* .picture-border {
 } */
 
-.community-picture {
+.communityPicture {
   width: 250px;
   height: 375px;
   border-radius: 5px;
@@ -23,20 +23,20 @@
   margin-bottom: 10px;
 }
 
-.community-basicinfo-name {
+.communityBasicInfoName {
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.community-members {
+.communityMembers {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
 
-.community-hr-faded {
+.communityHrFaded {
   display: block;
   border: none;
   height: 1px; /* aumenta um pouco pra enxergar melhor */
@@ -47,13 +47,13 @@
   margin-bottom: 20px;
 }
 
-.community-links-container {
+.communityLinksContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.community-link {
+.communityLink {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -62,25 +62,25 @@
   transition: color 0.2s ease-in;
 }
 
-.community-link:hover {
+.communityLink:hover {
   color: #0377b9;
   cursor: pointer;
 }
 
-.community-links-actions {
+.communityLinks-Actions {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 10px;
 }
 
-.action-title {
+.actionTitle {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.community-link-action {
+.communityLinkAction {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -89,7 +89,7 @@
   transition: color 0.2s ease-in;
 }
 
-.community-link-action:hover {
+.communityLinkAction:hover {
   color: #0377b9;
   cursor: pointer;
 }

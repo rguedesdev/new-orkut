@@ -1,4 +1,4 @@
-.testimonials-container {
+.testimonialsContainer {
   min-width: 900px;
   height: auto;
   background-color: #ffffff;
@@ -8,7 +8,7 @@
   padding: 30px;
 }
 
-.testimonial-title {
+.testimonialTitle {
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 20px;
@@ -21,29 +21,29 @@
   gap: 20px;
 }
 
-.testimonial-image {
+.testimonialImage {
   width: 80px;
   height: 80px;
   border-radius: 5px;
   object-fit: cover;
 }
 
-.testimonial-container {
+.testimonialContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.testimonial-name-nickname {
+.testimonialNameNickname {
   font-size: 1.11rem;
   font-weight: bold;
 }
 
-.testimonial-text {
+.testimonialText {
   margin-bottom: 30px;
 }
 
-.testimonial-hr-faded {
+.testimonialHrFaded {
   display: block;
   border: none;
   height: 1px;
@@ -53,7 +53,7 @@
   margin-bottom: 30px;
 }
 
-.see-all-testimonials {
+.seeAllTestimonials {
   font-size: 1.1rem;
   font-weight: bold;
   color: #ed2590;
@@ -69,7 +69,7 @@
   transition: color 0.2s ease-in;
 }
 
-.see-all-testimonials:hover {
+.seeAllTestimonials:hover {
   color: #0377b9;
   cursor: pointer;
 }

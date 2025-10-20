@@ -4,6 +4,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+import { setCookie } from "cookies-next";
+
 // Axios
 import api from "@/utils/api";
 
@@ -55,6 +57,8 @@ function useAuth() {
       });
       const signInData: TAuthPayload = response.data.data.signIn;
 
+      console.log("Resposta GraphQL:", signInData);
+
       if (!signInData?.token || !signInData?.user) {
         throw new Error("Credenciais inválidas");
       }
@@ -87,7 +91,7 @@ function useAuth() {
     api.defaults.headers.Authorization = `Bearer ${data.token}`;
 
     // Redireciona para a página do usuário
-    router.push("/pt/profile");
+    router.push("/profile");
   }
 
   // async function authUser(data: TAuthPayload) {

@@ -1,4 +1,4 @@
-.welcome-box {
+.welcomeBox {
   width: 900px;
   height: 560px;
   padding: 20px;
@@ -23,7 +23,7 @@
   box-shadow: 0 0 12px 3px #025d92; 
 } */
 
-.image-people {
+.imagePeople {
   width: 350px;
   height: auto;
 }

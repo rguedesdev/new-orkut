@@ -7,18 +7,16 @@ main {
 
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
   gap: 20px;
 }
 
-.central-container {
+.community-central-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.right-container {
+.community-right-container {
   display: flex;
   flex-direction: column;
   gap: 20px;

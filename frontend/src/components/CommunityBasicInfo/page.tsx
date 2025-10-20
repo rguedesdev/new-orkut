@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./communitybasicinfo.module.css";
 
 // Components
 import { MdOutlinePeopleAlt, MdOutlineForum } from "react-icons/md";
@@ -22,10 +22,10 @@ import Frieren from "../../../public/frieren.jpg";
 function CommunityBasicInfoComponent() {
   return (
     <section>
-      <div className="community-basic-info-container">
-        <div className="picture-border">
+      <div className={styles.communityBasicInfoContainer}>
+        <div className={styles.pictureBorder}>
           <Image
-            className="community-picture"
+            className={styles.communityPicture}
             src={Frieren}
             alt="Profile Image"
             width={200}
@@ -34,42 +34,44 @@ function CommunityBasicInfoComponent() {
           />
         </div>
 
-        <div className="community-info">
-          <h1 className="community-basicinfo-name">Sousou no Frieren Brasil</h1>
-          <p className="community-members">
+        <div className={styles.communityInfo}>
+          <h1 className={styles.communityBasicInfoName}>
+            Sousou no Frieren Brasil
+          </h1>
+          <p className={styles.communityMembers}>
             <MdOutlinePeopleAlt size={22} />
             <span>2.345 membros</span>
           </p>
 
-          <p className="community-members">
+          <p className={styles.communityMembers}>
             <RiMegaphoneLine size={22} />
             <span>Promover</span>
           </p>
         </div>
 
-        <hr className="community-hr-faded" />
+        <hr className={styles.communityHrFaded} />
 
-        <div className="community-links-container">
-          <Link className="community-link" href={`/`}>
+        <div className={styles.communityLinksContainer}>
+          <Link className={styles.communityLink} href={`/`}>
             <MdOutlineForum size={22} />
             <span>Fórum</span>
           </Link>
 
-          <Link className="community-link" href={`/`}>
+          <Link className={styles.communityLink} href={`/`}>
             <CgPoll size={22} />
             <span>Enquetes</span>
           </Link>
         </div>
 
-        <hr className="community-hr-faded" />
+        <hr className={styles.communityHrFaded} />
 
-        <div className="community-links-actions">
-          <h2 className="action-title">Ações</h2>
-          <Link className="community-link-action" href={`/`}>
+        <div className={styles.communityLinksActions}>
+          <h2 className={styles.actionTitle}>Ações</h2>
+          <Link className={styles.communityLinkAction} href={`/`}>
             <RiUserCommunityLine size={22} />
             <span>Entrar na Comunidade</span>
           </Link>
-          <Link className="community-link-action" href={`/`}>
+          <Link className={styles.communityLinkAction} href={`/`}>
             <RiCloseCircleLine size={25} />
             <span>Sair da Comunidade</span>
           </Link>

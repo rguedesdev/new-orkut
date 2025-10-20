@@ -1,5 +1,5 @@
 /* Contêiner ocupa 100% da tela e centraliza o loader */
-.loading-container {
+.loadingContainer {
   position: fixed; /* cobre a tela inteira */
   top: 0;
   left: 0;

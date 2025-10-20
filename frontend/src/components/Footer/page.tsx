@@ -1,9 +1,9 @@
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./footer.module.css";
 
 function Footer() {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <h1>@ 2025 Orkkut.</h1>
     </footer>
   );
