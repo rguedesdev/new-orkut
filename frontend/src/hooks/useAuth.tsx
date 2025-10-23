@@ -75,6 +75,7 @@ function useAuth() {
 
   async function logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
     localStorage.setItem("theme", "light");
     setUserAuthenticated(false);
     router.push("/");
@@ -84,14 +85,16 @@ function useAuth() {
   async function authUser(data: TAuthPayload) {
     setUserAuthenticated(true);
 
-    // Salva token no localStorage
+    // Salva token e ID no localStorage
     localStorage.setItem("token", data.token);
 
     // Configura Axios para enviar token em futuras requisições
     api.defaults.headers.Authorization = `Bearer ${data.token}`;
 
+    const userId = data.user.id;
+
     // Redireciona para a página do usuário
-    router.push("/profile");
+    router.push(`/profile/${userId}`);
   }
 
   // async function authUser(data: TAuthPayload) {

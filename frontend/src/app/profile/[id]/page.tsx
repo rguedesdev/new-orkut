@@ -4,6 +4,8 @@
 import { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/navigation";
 
+import api from "@/utils/api";
+
 // Contexts
 import { UserContext } from "@/context/UserContext";
 
@@ -21,6 +23,9 @@ import { MyCommunitiesComponent } from "@/components/MyCommunities/page";
 function Profile() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const [user, setUser] = useState<any | null>(null);
+
+  console.log(user);
 
   const Context = useContext(UserContext);
   if (!Context) return null;
@@ -33,6 +38,34 @@ function Profile() {
     if (!token) {
       router.push("/");
     }
+
+    const checkUser = async () => {
+      try {
+        const response = await api.post(
+          "/graphql",
+          {
+            query: `
+             query {
+                 me {
+                     name
+                     email
+                    } 
+                   }`,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setUser(response.data.data.me);
+      } catch (error) {
+        console.error("Erro ao validar usuário:", error);
+      }
+    };
+
+    checkUser();
   }, []);
 
   useEffect(() => {
@@ -47,9 +80,9 @@ function Profile() {
 
   return (
     <main className={styles.mainContainer}>
-      <BasicInfoComponent />
+      {user && <BasicInfoComponent user={user} />}
       <div className={styles.centralContainer}>
-        <ProfileDetailsComponent />
+        <ProfileDetailsComponent user={user} />
         <TestimonialsComponent />
       </div>
       <div className={styles.rightContainer}>

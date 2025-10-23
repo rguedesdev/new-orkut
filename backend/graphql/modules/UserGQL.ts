@@ -1,8 +1,12 @@
 import UserController from "../../controller/UserController.js";
 
+//Middlewares
+import { getToken } from "../../helpers/get-token.js";
+import { getUserByToken } from "../../helpers/get-user-by-token.js";
+
 const userTypeDefs = `
   type Query {
-    test: String
+    me: User
   }
 
   input signUpInput {
@@ -37,10 +41,10 @@ const userTypeDefs = `
 
 const userResolvers = {
   Query: {
-    test: () => "Funcionou!",
+    me: (_: any, __: any, context: any) => UserController.checkUser(context),
   },
   Mutation: {
-    // Cadastro
+    // Requisição de cadastro
     signUp: (
       _: any,
       {
@@ -52,7 +56,7 @@ const userResolvers = {
       }
     ) => UserController.signUp({ ...input, confirmPassword }),
 
-    // Login
+    // Requisição de login
     signIn: (
       _: any,
       { input }: { input: { email: string; password: string } }

@@ -4,6 +4,9 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+// Axios
+import api from "@/utils/api";
+
 // Style Sheet CSS
 import styles from "./home.module.css";
 
@@ -17,10 +20,35 @@ function HomePage() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    if (token) {
-      router.push("/profile");
-    }
-  }, []);
+    if (!token) return;
+
+    const checkUser = async () => {
+      try {
+        const response = await api.post("/graphql", {
+          query: `
+            query {
+              me {
+                id
+              }
+            }
+          `,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const userId = response.data.data.me?.id;
+        if (userId) {
+          router.push(`/profile/${userId}`);
+        }
+      } catch (err) {
+        console.error("Erro ao validar usuário:", err);
+        localStorage.removeItem("token"); // limpa token inválido
+      }
+    };
+
+    checkUser();
+  }, [router]);
 
   return (
     <main className={styles.container}>

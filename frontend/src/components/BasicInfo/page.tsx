@@ -39,7 +39,12 @@ import { TbMessageDots } from "react-icons/tb";
 import Kon from "../../../public/kon.jpg";
 import Marina from "../../public/marina.png";
 
-function BasicInfoComponent() {
+interface IUser {
+  name: string;
+  email: string;
+}
+
+function BasicInfoComponent({ user }: { user: IUser }) {
   return (
     <section>
       <div className={styles.basicInfoContainer}>
@@ -55,7 +60,7 @@ function BasicInfoComponent() {
         </div>
 
         <div className={styles.personalInfo}>
-          <h1 className={styles.basicInfoNameNickname}>Reinaldo Guedes</h1>
+          <h1 className={styles.basicInfoNameNickname}>@{user.name}</h1>
           <p className={styles.genderMaritalStatus}>Masculino, Solteiro(a)</p>
           <p className={styles.stateCountry}>
             <FiMapPin size={15} /> <span>São Paulo, Brasil</span>

@@ -8,7 +8,7 @@ import { BsFillBoxFill, BsBox } from "react-icons/bs";
 import { IoHeart, IoHeartHalf, IoHeartOutline } from "react-icons/io5";
 import { RiArrowRightWideLine } from "react-icons/ri";
 
-function ProfileDetailsComponent() {
+function ProfileDetailsComponent({ user }) {
   return (
     <section>
       <div className={styles.profileDetailsContainer}>

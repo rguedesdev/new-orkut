@@ -4,6 +4,8 @@ import { UserModel } from "../models/UserModel.js";
 
 // Middlewares
 import { createUserToken } from "../helpers/create-user-token.js";
+import { getToken } from "../helpers/get-token.js";
+import { getUserByToken } from "../helpers/get-user-by-token.js";
 
 class UserController {
   static async signUp({
@@ -102,6 +104,20 @@ class UserController {
       console.error("Erro ao logar usuário:", error);
       throw new Error("Erro ao logar usuário");
     }
+  }
+
+  static async checkUser(context: any) {
+    const token = getToken(context.request);
+    if (!token) throw new Error("Acesso negado!");
+
+    const user = await getUserByToken(token);
+    if (!user) throw new Error("Usuário não encontrado!");
+
+    return {
+      id: user._id.toString(),
+      name: user.name,
+      email: user.email,
+    };
   }
 }
 export default UserController;
