@@ -17,9 +17,7 @@ function ProfileDetailsComponent({ user }) {
           <RiArrowRightWideLine className={styles.breadcrumbsIcon} size={20} />
           <span className={styles.breadcrumbsAactive}>Perfil</span>
         </div>
-        <h1 className={styles.profileDetailsNameNickname}>
-          Reinaldo Guedes do Nascimento
-        </h1>
+        <h1 className={styles.profileDetailsNameNickname}>{user.name}</h1>
 
         <blockquote className={styles.thoughts}>
           "Vivendo e aprendendo!" - Oe Kintaro.
@@ -30,7 +28,7 @@ function ProfileDetailsComponent({ user }) {
             <h2 className={styles.attributeTitle}>Fãs</h2>
             <div className={styles.attributeInfo}>
               <GoStarFill className={styles.fansAttributeIcon} size={22} />
-              <span>50</span>
+              <span>{user.attributes.fans}</span>
             </div>
           </li>
 
@@ -99,25 +97,25 @@ function ProfileDetailsComponent({ user }) {
             <dd>Não tenho</dd>
           </div>
 
-          <div className={styles.infoPair}>
+          {/* <div className={styles.infoPair}>
             <dt>Etnia</dt>
             <dd>Pardo</dd>
-          </div>
+          </div> */}
 
-          <div className={styles.infoPair}>
+          {/* <div className={styles.infoPair}>
             <dt>Humor</dt>
             <dd>Extrovertido(a)</dd>
-          </div>
+          </div> */}
 
           <div className={styles.infoPair}>
             <dt>Orientação Sexual</dt>
             <dd>Heterosexual</dd>
           </div>
 
-          <div className={styles.infoPair}>
+          {/* <div className={styles.infoPair}>
             <dt>Estilo</dt>
             <dd>Urbano</dd>
-          </div>
+          </div> */}
 
           <div className={styles.infoPair}>
             <dt>Fumo</dt>
@@ -129,20 +127,20 @@ function ProfileDetailsComponent({ user }) {
             <dd>Não</dd>
           </div>
 
-          <div className={styles.infoPair}>
+          {/* <div className={styles.infoPair}>
             <dt>Animais de estimação</dt>
             <dd>Gosto</dd>
-          </div>
+          </div> */}
 
-          <div className={styles.infoPair}>
+          {/* <div className={styles.infoPair}>
             <dt>Moro</dt>
             <dd>Com meus pais</dd>
-          </div>
+          </div> */}
 
-          <div className={styles.infoPair}>
+          {/* <div className={styles.infoPair}>
             <dt>Cidade natal</dt>
             <dd>Rio de Janeiro</dd>
-          </div>
+          </div> */}
 
           <div className={styles.infoPair}>
             <dt>Paixões</dt>

@@ -48,7 +48,14 @@ function Profile() {
              query {
                  me {
                      name
+                     nickname
                      email
+                     attributes {
+                        fans
+                        cool
+                        sexy
+                        reliable
+                     }
                     } 
                    }`,
           },
@@ -82,7 +89,7 @@ function Profile() {
     <main className={styles.mainContainer}>
       {user && <BasicInfoComponent user={user} />}
       <div className={styles.centralContainer}>
-        <ProfileDetailsComponent user={user} />
+        {user && <ProfileDetailsComponent user={user} />}
         <TestimonialsComponent />
       </div>
       <div className={styles.rightContainer}>

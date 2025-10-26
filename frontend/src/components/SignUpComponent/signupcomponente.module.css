@@ -1,6 +1,6 @@
-.loginBox {
-  width: 350px;
-  height: 380px;
+.signUpBox {
+  width: 600px;
+  height: 600px;
   background-color: var(--component-bg-color);
 
   border-radius: 8px;
@@ -12,7 +12,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.loginBox:hover {
+.signUpBox:hover {
   transform: scaleY(-5px);
   box-shadow: 0 0 12px 3px #025d92;
 }
@@ -25,7 +25,7 @@
   margin-bottom: 20px;
 }
 
-.loginInputs {
+.signUpInputs {
   display: flex;
   flex-direction: column;
 
@@ -103,8 +103,8 @@
   cursor: pointer;
 }
 
-.notMemberBox {
-  width: 350px;
+.memberBox {
+  width: 600px;
   height: 160px;
   background-color: var(--component-bg-color);
 
@@ -116,7 +116,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.notMemberBox:hover {
+.memberBox:hover {
   transform: scaleY(-5px);
   box-shadow: 0 0 12px 3px #025d92;
 }

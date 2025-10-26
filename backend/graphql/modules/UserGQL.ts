@@ -1,9 +1,5 @@
 import UserController from "../../controller/UserController.js";
 
-//Middlewares
-import { getToken } from "../../helpers/get-token.js";
-import { getUserByToken } from "../../helpers/get-user-by-token.js";
-
 const userTypeDefs = `
   type Query {
     me: User
@@ -11,6 +7,7 @@ const userTypeDefs = `
 
   input signUpInput {
     name: String!
+    nickname: String!
     email: String!
     password: String!
   }
@@ -20,10 +17,20 @@ const userTypeDefs = `
     password: String!
   }
 
+
+  type Attributes {
+    fans: Int
+    cool: Int
+    sexy: Int
+    reliable: Int
+  } 
+
   type User {
     id: ID!
     name: String!
+    nickname: String!
     email: String!
+    attributes: Attributes
     token: String!
   }
 
@@ -51,7 +58,12 @@ const userResolvers = {
         input,
         confirmPassword,
       }: {
-        input: { name: string; email: string; password: string };
+        input: {
+          name: string;
+          nickname: string;
+          email: string;
+          password: string;
+        };
         confirmPassword: string;
       }
     ) => UserController.signUp({ ...input, confirmPassword }),

@@ -41,6 +41,7 @@ import Marina from "../../public/marina.png";
 
 interface IUser {
   name: string;
+  nickname: string;
   email: string;
 }
 
@@ -60,10 +61,11 @@ function BasicInfoComponent({ user }: { user: IUser }) {
         </div>
 
         <div className={styles.personalInfo}>
-          <h1 className={styles.basicInfoNameNickname}>@{user.name}</h1>
+          <h1 className={styles.basicInfoNameNickname}>@{user.nickname}</h1>
           <p className={styles.genderMaritalStatus}>Masculino, Solteiro(a)</p>
           <p className={styles.stateCountry}>
-            <FiMapPin size={15} /> <span>São Paulo, Brasil</span>
+            <FiMapPin size={15} />{" "}
+            <span>{`${user.city ? user.city + "," : ""}`} Brasil</span>
           </p>
         </div>
 

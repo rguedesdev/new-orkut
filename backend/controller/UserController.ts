@@ -10,6 +10,7 @@ import { getUserByToken } from "../helpers/get-user-by-token.js";
 class UserController {
   static async signUp({
     name,
+    nickname,
     email,
     password,
     confirmPassword,
@@ -38,7 +39,9 @@ class UserController {
 
     try {
       const user = new UserModel({
+        profilePicture: "",
         name: name,
+        nickname: nickname,
         email: email,
         password: passwordHash,
       });
@@ -50,6 +53,7 @@ class UserController {
       return {
         id: newUser._id.toString(),
         name: newUser.name,
+        nickname: newUser.nickname,
         email: newUser.email,
         token,
       };
@@ -116,7 +120,14 @@ class UserController {
     return {
       id: user._id.toString(),
       name: user.name,
+      nickname: user.nickname,
       email: user.email,
+      attributes: {
+        fans: user.attributes?.fans ?? 0,
+        cool: user.attributes?.cool ?? 0,
+        sexy: user.attributes?.sexy ?? 0,
+        reliable: user.attributes?.reliable ?? 0,
+      },
     };
   }
 }

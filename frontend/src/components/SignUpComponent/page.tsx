@@ -5,16 +5,19 @@ import Link from "next/link";
 import { UserContext } from "@/context/UserContext";
 
 // Style Sheet CSS
-import styles from "./login.module.css";
+import styles from "./signupcomponente.module.css";
 
-function LoginComponent() {
+function SignUpComponent() {
   const Context = useContext(UserContext);
   if (!Context) return null;
 
   const { signIn } = Context;
 
+  const [name, setName] = useState("");
+  const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const [spinner, setSpinner] = useState(false);
 
@@ -44,14 +47,40 @@ function LoginComponent() {
 
   return (
     <section aria-labelledby={styles.loginTitle}>
-      <div className={styles.loginBox}>
+      <div className={styles.signUpBox}>
         <h1 id="loginTitle" className={styles.loginTitle}>
-          Login
+          Cadastre-se
         </h1>
 
         <form onSubmit={handleSubmit}>
-          <fieldset className={styles.loginInputs}>
+          <fieldset className={styles.signUpInputs}>
             {/* <legend>Informações de Login</legend> */}
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="my-name">Nome</label>
+              <input
+                className={styles.myInputs}
+                type="email"
+                id="myName"
+                name="my-name"
+                placeholder="Digite seu nome"
+                value={name}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="my-nickname">Nickname</label>
+              <input
+                className={styles.myInputs}
+                type="nickname"
+                id="myNickname"
+                name="my-nickname"
+                placeholder="Digite seu nickname"
+                value={nickname}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
 
             <div className={styles.inputContainer}>
               <label htmlFor="my-email">Email</label>
@@ -78,6 +107,19 @@ function LoginComponent() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="my-confirmPassword">Confirme a senha</label>
+              <input
+                className={styles.myInputs}
+                type="confirmPassword"
+                id="myConfirmPassword"
+                name="my-confirmPassword"
+                placeholder="Digite sua senha novamente"
+                value={confirmPassword}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
           </fieldset>
 
           {spinner ? (
@@ -91,19 +133,19 @@ function LoginComponent() {
           )}
         </form>
 
-        <p className={styles.recoverBox}>
+        {/* <p className={styles.recoverBox}>
           <span>Esqueceu a senha ou email?</span>{" "}
           <Link href="/" className={styles.recover}>
             Clique Aqui!
           </Link>
-        </p>
+        </p> */}
       </div>
 
-      <aside className={styles.notMemberBox}>
+      <aside className={styles.memberBox}>
         <p className={styles.signupBox}>
-          <span className={styles.notYetAMember}>Ainda não é membro?</span>{" "}
-          <Link href="/signup" className={styles.signUp}>
-            Junte-se ao Orkut!
+          <span className={styles.notYetAMember}>Já é membro?</span>{" "}
+          <Link href="/" className={styles.signUp}>
+            Faça login!
           </Link>
         </p>
       </aside>
@@ -111,4 +153,4 @@ function LoginComponent() {
   );
 }
 
-export { LoginComponent };
+export { SignUpComponent };
