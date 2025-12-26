@@ -64,7 +64,7 @@ function BasicInfoComponent({ user }: { user: IUser }) {
           <h1 className={styles.basicInfoNameNickname}>@{user.nickname}</h1>
           <p className={styles.genderMaritalStatus}>Masculino, Solteiro(a)</p>
           <p className={styles.stateCountry}>
-            <FiMapPin size={15} />{" "}
+            <FiMapPin size={15} />
             <span>{`${user.city ? user.city + "," : ""}`} Brasil</span>
           </p>
         </div>

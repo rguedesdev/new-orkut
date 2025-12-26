@@ -28,7 +28,7 @@ function CommunityMembersComponent() {
     <section aria-labelledby={styles.communityMembersTitle}>
       <div className={styles.communityMembersContainer}>
         <h2 id="friends-title" className={styles.communityMembersTitle}>
-          Membros ({members.length})
+          Membros {/* ({members.length}) */}
         </h2>
 
         <ul className={styles.members}>

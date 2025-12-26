@@ -15,21 +15,17 @@ import { FaShieldHalved } from "react-icons/fa6";
 import { RiVipCrownLine } from "react-icons/ri";
 import { style } from "framer-motion/client";
 
-function CommunityDetailsComponent() {
+function CommunityDetailsComponent({ community }) {
   return (
     <section>
       <div className={styles.communityDetailsContainer}>
-        <h1 className={styles.communityName}>Sousou no Frieren Brasil</h1>
+        <h1 className={styles.communityName}>{community.name}</h1>
 
         {/* <blockquote className="thoughts">
           "Vivendo e aprendendo!" - Oe Kintaro.
         </blockquote> */}
 
-        <p>
-          Fãs de Sousou no Frieren, unite-se! Aqui compartilhamos teorias,
-          fanarts, memes e tudo sobre nossas aventuras com Frieren. Venha fazer
-          parte dessa jornada!
-        </p>
+        <p>{community.description}</p>
 
         <hr className={styles.communityDetailsHrFaded} />
 
@@ -40,7 +36,7 @@ function CommunityDetailsComponent() {
                 <TbCategory2 size={20} /> <span>Categoria</span>
               </dt>
               <dd className={styles.communityInfoLineValue}>
-                <span>Anime/Mangá</span>
+                <span>{community.category}</span>
               </dd>
             </div>
 
@@ -50,7 +46,13 @@ function CommunityDetailsComponent() {
                 <span>Privacidade</span>
               </dt>
               <dd className={styles.communityInfoLineValue}>
-                <span>Público</span>
+                <span>
+                  {community.privacy === "public"
+                    ? "Público"
+                    : community.privacy === "private"
+                    ? "Privado"
+                    : "Secreto"}
+                </span>
               </dd>
             </div>
 

@@ -37,6 +37,7 @@ function Profile() {
 
     if (!token) {
       router.push("/");
+      return;
     }
 
     const checkUser = async () => {
@@ -45,19 +46,20 @@ function Profile() {
           "/graphql",
           {
             query: `
-             query {
-                 me {
-                     name
-                     nickname
-                     email
-                     attributes {
-                        fans
-                        cool
-                        sexy
-                        reliable
-                     }
-                    } 
-                   }`,
+            query Me {
+              me {
+                name
+                nickname
+                email
+                attributes {
+                  fans
+                  cool
+                  sexy
+                  reliable
+                }
+              }
+            }
+          `,
           },
           {
             headers: {
@@ -66,19 +68,25 @@ function Profile() {
           }
         );
 
+        // DEBUG REAL
+        console.log("GraphQL response:", response.data);
+
+        if (response.data.errors) {
+          console.error("GraphQL errors:", response.data.errors);
+          router.push("/");
+          return;
+        }
+
         setUser(response.data.data.me);
       } catch (error) {
         console.error("Erro ao validar usuário:", error);
+        router.push("/");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     checkUser();
-  }, []);
-
-  useEffect(() => {
-    // Simula carregamento de dados ou espera mínima
-    const timer = setTimeout(() => setIsLoading(false), 1000); // 0.5s ou quanto precisar
-    return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {

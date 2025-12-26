@@ -1,0 +1,96 @@
+.searchContainer {
+  width: 900px;
+  min-height: 205px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--component-bg-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* padding-top: 10px;
+  padding-inline: 30px;
+  padding-bottom: 30px; */
+  padding-top: 15px;
+}
+
+.searchTitle {
+  margin-top: 0;
+  margin-left: 30px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.searchSubtitle {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.searchInput input[type="search"] {
+  min-width: 850px;
+  height: 50px;
+  background-color: #f0f5fc;
+  color: #353535;
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px 0 20px;
+  font-size: 16px;
+  outline: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  transition: box-shadow 0.1s ease;
+}
+
+.searchContainer input[type="search"]::placeholder {
+  color: #bbb;
+}
+
+/* .searchContainer input[type="search"]:focus {
+  box-shadow: 0 0 5px 3px #ed2590;
+  background-color: #f0f5fc;
+} */
+
+.searchContainer input[type="search"]:focus {
+  background-color: #f0f5fc;
+
+  box-shadow: 0 0 0 1px #d293b4, /* linha interna */ 0 0 0 2px #f0f5fc,
+    /* GAP real (cor do fundo) */ 0 0 0 3px #d293b4; /* linha externa */
+}
+
+/* Search Icon */
+.searchContainer .searchIcon {
+  position: absolute;
+  top: 208px;
+  left: 1880px;
+  transform: translateY(-50%);
+  color: #353535;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.searchResult {
+  display: inline-flex;
+  gap: 10px;
+  margin-left: 17px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in;
+}
+
+.searchResult:hover {
+  background-color: #f0f5fc;
+  box-shadow: rgba(0, 0, 0, 0.1);
+  /* color: #ffffff; */
+}
+
+.searchImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+}

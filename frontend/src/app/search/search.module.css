@@ -1,0 +1,12 @@
+.Main {
+  max-width: 1700px;
+  height: auto;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}

@@ -127,6 +127,6 @@ const userSchema = new Schema<IUser>(
   { timestamps: true }
 );
 
-const UserModel = OrkkutDB.model("Users", userSchema);
+const UserModel = OrkkutDB.model<IUser>("User", userSchema);
 
 export { UserModel };

@@ -8,6 +8,7 @@ import { setCookie } from "cookies-next";
 
 // Axios
 import api from "@/utils/api";
+import { input } from "framer-motion/client";
 
 // Tipagens
 type TUser = { id: string; name: string; email: string };
@@ -36,7 +37,7 @@ function useAuth() {
     password: string
   ): Promise<TAuthPayload> {
     const mutation = `
-    mutation signIn($input: signInInput!) {
+    mutation signIn($input: SignInInput!) {
       signIn(input: $input) {
         user {
           id
@@ -73,6 +74,52 @@ function useAuth() {
     }
   }
 
+  async function signUp(
+    name: string,
+    nickname: string,
+    email: string,
+    password: string,
+    confirmPassword: string
+  ) {
+    const mutation = `
+      mutation signUp($input: SignUpInput!, $confirmPassword: String!) {
+        signUp(input: $input, confirmPassword: $confirmPassword) {
+          user {
+            id
+            name
+            nickname
+            email
+          }
+          token
+        }
+      }
+    `;
+
+    const variables = {
+      input: { name, nickname, email, password },
+      confirmPassword,
+    };
+
+    const response = await api.post("/graphql", {
+      query: mutation,
+      variables,
+    });
+
+    const { data, errors } = response.data;
+
+    if (errors?.length) {
+      throw new Error(errors[0].message);
+    }
+
+    const authPayload: TAuthPayload = data.signUp;
+
+    if (!authPayload?.token || !authPayload?.user) {
+      throw new Error("Resposta inválida do servidor");
+    }
+
+    await authUser(authPayload);
+  }
+
   async function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
@@ -107,6 +154,7 @@ function useAuth() {
   return {
     userAuthenticated,
     signIn,
+    signUp,
     logout,
   };
 }

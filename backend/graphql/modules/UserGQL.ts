@@ -1,78 +1,61 @@
 import UserController from "../../controller/UserController.js";
 
-const userTypeDefs = `
+const userTypeDefs = /* GraphQL */ `
+  ### ROOT TYPES ###
   type Query {
     me: User
   }
 
-  input signUpInput {
-    name: String!
-    nickname: String!
-    email: String!
-    password: String!
+  type Mutation {
+    signUp(input: SignUpInput!, confirmPassword: String!): AuthPayload!
+    signIn(input: SignInInput!): AuthPayload!
   }
 
-  input signInInput {
-    email: String!
-    password: String!
-  }
-
-
-  type Attributes {
-    fans: Int
-    cool: Int
-    sexy: Int
-    reliable: Int
-  } 
-
+  ### MAIN TYPES ###
   type User {
     id: ID!
     name: String!
     nickname: String!
     email: String!
     attributes: Attributes
-    token: String!
   }
 
   type AuthPayload {
     user: User!
     token: String!
   }
-    
 
-  type Mutation {
-    signUp(input: signUpInput!, confirmPassword: String!): User
-    signIn(input: signInInput!): AuthPayload
+  ### AUX TYPES ###
+  type Attributes {
+    fans: Int
+    cool: Int
+    sexy: Int
+    reliable: Int
+  }
+
+  ### INPUTS ###
+  input SignUpInput {
+    name: String!
+    nickname: String!
+    email: String!
+    password: String!
+  }
+
+  input SignInInput {
+    email: String!
+    password: String!
   }
 `;
 
-const userResolvers = {
+const userResolvers: any = {
   Query: {
     me: (_: any, __: any, context: any) => UserController.checkUser(context),
   },
   Mutation: {
-    // Requisição de cadastro
-    signUp: (
-      _: any,
-      {
-        input,
-        confirmPassword,
-      }: {
-        input: {
-          name: string;
-          nickname: string;
-          email: string;
-          password: string;
-        };
-        confirmPassword: string;
-      }
-    ) => UserController.signUp({ ...input, confirmPassword }),
+    signUp: (_: any, { input, confirmPassword }: any) =>
+      UserController.signUp({ ...input, confirmPassword }),
 
-    // Requisição de login
-    signIn: (
-      _: any,
-      { input }: { input: { email: string; password: string } }
-    ) => UserController.signIn(input),
+    signIn: (_: any, { input }: any) => UserController.signIn(input),
   },
 };
 

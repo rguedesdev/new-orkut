@@ -29,9 +29,9 @@ function ForumComponent() {
         <div className={styles.topForumElements}>
           <h2 className={styles.forumTitle}>Fórum</h2>
 
-          <button className={styles.createTopicBtn}>
+          <Link className={styles.createTopicBtn} href={`/create-topic`}>
             <FaRegPenToSquare size={20} /> <span>Criar Tópico</span>
-          </button>
+          </Link>
         </div>
 
         <div className={styles.topicContainer}>

@@ -13,20 +13,22 @@ import { AiOutlineStop } from "react-icons/ai";
 import { GoCircleSlash } from "react-icons/go";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { RiCloseCircleLine } from "react-icons/ri";
+import { FaTheaterMasks } from "react-icons/fa";
+import { AiOutlineFileText } from "react-icons/ai";
 
 import { RiMegaphoneLine } from "react-icons/ri";
 
 // Images
-import Frieren from "../../../public/frieren.jpg";
+import EuOdeio from "../../../public/eu_odeio_ia.png";
 
-function CommunityBasicInfoComponent() {
+function CommunityBasicInfoComponent({ community }) {
   return (
     <section>
       <div className={styles.communityBasicInfoContainer}>
         <div className={styles.pictureBorder}>
           <Image
             className={styles.communityPicture}
-            src={Frieren}
+            src={EuOdeio}
             alt="Profile Image"
             width={200}
             height={200}
@@ -35,12 +37,14 @@ function CommunityBasicInfoComponent() {
         </div>
 
         <div className={styles.communityInfo}>
-          <h1 className={styles.communityBasicInfoName}>
-            Sousou no Frieren Brasil
-          </h1>
+          {/* <h1 className={styles.communityBasicInfoName}>{community.name}</h1> */}
           <p className={styles.communityMembers}>
             <MdOutlinePeopleAlt size={22} />
-            <span>2.345 membros</span>
+            <span>
+              {community.members <= 1
+                ? `${community.members} membro`
+                : `${community.members} membros`}
+            </span>
           </p>
 
           <p className={styles.communityMembers}>
@@ -61,6 +65,16 @@ function CommunityBasicInfoComponent() {
             <CgPoll size={22} />
             <span>Enquetes</span>
           </Link>
+
+          <Link className={styles.communityLink} href={`/`}>
+            <FaTheaterMasks size={22} />
+            <span>Eventos</span>
+          </Link>
+
+          <Link className={styles.communityLink} href={`/`}>
+            <AiOutlineFileText size={22} />
+            <span>Regras</span>
+          </Link>
         </div>
 
         <hr className={styles.communityHrFaded} />
@@ -72,14 +86,14 @@ function CommunityBasicInfoComponent() {
             <span>Entrar na Comunidade</span>
           </Link>
           <Link className={styles.communityLinkAction} href={`/`}>
-            <RiCloseCircleLine size={25} />
+            <RiCloseCircleLine size={23} />
             <span>Sair da Comunidade</span>
           </Link>
 
-          {/* <Link className="community-link-action" href={`/`}>
+          <Link className={styles.communityLinkAction} href={`/`}>
             <GoCircleSlash size={23} />
             <span>Denunciar Comunidade</span>
-          </Link> */}
+          </Link>
         </div>
       </div>
     </section>

@@ -16,13 +16,15 @@ body,
   --nav-bg-color: #ffffff;
   --footer-bg-color: #ffffff;
   --text-color: #353535;
+  --hr-color: #0377b9;
 }
 
 /* Tema Escuro */
 [data-theme="dark"] {
   --background-color: #0b1622;
   --component-bg-color: #152232;
-  --text-color: #353535;
+  --text-color: #ffffff;
+  --hr-color: #ed2590;
 }
 
 body {

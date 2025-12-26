@@ -37,6 +37,7 @@ import Logo from "../../public/orkut_logo.png";
 import Logo2 from "../../public/orkut_logo2.png";
 import Logo3 from "../../../public/orkut_logo3.png";
 import Kon from "../../../public/kon.jpg";
+import { header } from "framer-motion/client";
 
 function Navbar() {
   // const authenticated = useContext(UserContext);
@@ -52,121 +53,122 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={styles.navbar}>
-      <Image
-        className={styles.logo}
-        src={Logo3}
-        alt="Logo"
-        width={120}
-        height={0}
-        priority
-      />
+    <header>
+      <nav className={styles.navbar}>
+        <Image
+          className={styles.logo}
+          src={Logo3}
+          alt="Logo"
+          width={120}
+          height={0}
+          priority
+        />
 
-      {userAuthenticated === false ? (
-        <ul>
-          {/* <li className="nav-li">
+        {userAuthenticated === false ? (
+          <ul>
+            {/* <li className="nav-li">
             <RiHome3Line size={20} />
             <span>Home</span>
           </li> */}
 
-          <li className={styles.navLi}>
-            <RiUserCommunityLine size={20} />
-            <span>Junte-se ao Orkkut</span>
-          </li>
+            <li className={styles.navLi}>
+              <RiUserCommunityLine size={20} />
+              <span>Junte-se ao Orkkut</span>
+            </li>
 
-          {/* <li>
+            {/* <li>
           <MdOutlinePermMedia size={20} />
           <span>Mídias</span>
         </li> */}
-
-          <li className={styles.navLi}>
-            <TbHelpSquareRounded size={22} />
-            <span>Ajuda</span>
-          </li>
-        </ul>
-      ) : (
-        <>
-          {" "}
-          <ul>
-            {/* <li className="nav-li">
-              <RiHome3Line size={20} />
-              <span>Home</span>
-            </li> */}
-
-            <li className={styles.navLi}>
-              <MdOutlineViewTimeline size={20} />
-              <span>Timeline</span>
-            </li>
-
-            <li className={styles.navLi}>
-              <CgProfile size={20} />
-              <span>Perfil</span>
-            </li>
-
-            <li className={styles.navLi}>
-              <LiaUserFriendsSolid size={20} />
-              <span>Amigos</span>
-            </li>
-
-            <li className={styles.navLi}>
-              <RiUserCommunityLine size={20} />
-              <span>Comunidades</span>
-            </li>
 
             <li className={styles.navLi}>
               <TbHelpSquareRounded size={22} />
               <span>Ajuda</span>
             </li>
           </ul>
-          <div className={styles.searchContainer}>
-            <IoSearch className={styles.searchIcon} size={20} />
-            <input type="search" placeholder="Buscar no Orkkut" />
-          </div>
-          <div className={styles.navProfileInfoContainer}>
-            <div className={styles.navProfilePictureBorder}>
-              <Image
-                className={styles.navProfilePicture}
-                src={Kon}
-                alt="Profile Picture"
-                width={0}
-                height={0}
-                priority
-              />
+        ) : (
+          <>
+            <ul>
+              {/* <li className="nav-li">
+              <RiHome3Line size={20} />
+              <span>Home</span>
+            </li> */}
+
+              <li className={styles.navLi}>
+                <CgProfile size={20} />
+                <span>Perfil</span>
+              </li>
+
+              <li className={styles.navLi}>
+                <MdOutlineViewTimeline size={20} />
+                <span>Timeline</span>
+              </li>
+
+              <li className={styles.navLi}>
+                <LiaUserFriendsSolid size={20} />
+                <span>Amigos</span>
+              </li>
+
+              <li className={styles.navLi}>
+                <RiUserCommunityLine size={20} />
+                <span>Comunidades</span>
+              </li>
+
+              <li className={styles.navLi}>
+                <TbHelpSquareRounded size={22} />
+                <span>Ajuda</span>
+              </li>
+            </ul>
+            <div className={styles.searchContainer}>
+              <IoSearch className={styles.searchIcon} size={20} />
+              <input type="search" placeholder="Buscar no Orkkut" />
             </div>
-            <h3 className={styles.navNameNickname}>Reinaldo Guedes</h3>
-
-            {/* seta que abre/fecha dropdown */}
-            <div className={styles.dropDownContainer}>
-              <RiArrowDownWideLine
-                className={styles.downArrow}
-                size={25}
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-              />
-
-              {/* menu dropdown */}
-              <div
-                className={`${styles.dropDownMenu} ${
-                  dropdownOpen ? styles.show : ""
-                }`}
-              >
-                <ul>
-                  <li>
-                    <BsGear size={20} />
-                    <span>Configurações</span>
-                  </li>
-
-                  <li onClick={() => logout()}>
-                    <TbLogout size={20} />
-                    <span>Sair</span>
-                  </li>
-                </ul>
+            <div className={styles.navProfileInfoContainer}>
+              <div className={styles.navProfilePictureBorder}>
+                <Image
+                  className={styles.navProfilePicture}
+                  src={Kon}
+                  alt="Profile Picture"
+                  width={0}
+                  height={0}
+                  priority
+                />
               </div>
+              <h3 className={styles.navNameNickname}>Reinaldo Guedes</h3>
+
+              {/* seta que abre/fecha dropdown */}
+              <div className={styles.dropDownContainer}>
+                <RiArrowDownWideLine
+                  className={styles.downArrow}
+                  size={25}
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                />
+
+                {/* menu dropdown */}
+                <div
+                  className={`${styles.dropDownMenu} ${
+                    dropdownOpen ? styles.show : ""
+                  }`}
+                >
+                  <ul>
+                    <li>
+                      <BsGear size={20} />
+                      <span>Configurações</span>
+                    </li>
+
+                    <li onClick={() => logout()}>
+                      <TbLogout size={20} />
+                      <span>Sair</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <ThemeToggle />
             </div>
-            <ThemeToggle />
-          </div>
-        </>
-      )}
-    </nav>
+          </>
+        )}
+      </nav>
+    </header>
   );
 }
 

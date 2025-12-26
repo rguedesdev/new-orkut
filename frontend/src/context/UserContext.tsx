@@ -14,6 +14,13 @@ interface IUserContext {
     user: { id: string; name: string; email: string };
     token: string;
   }>;
+  signUp: (
+    name: string,
+    nickname: string,
+    email: string,
+    password: string,
+    confirmPassword: string
+  ) => Promise<void>;
   logout: () => void;
 }
 
@@ -25,10 +32,10 @@ interface IChildren {
 }
 
 function UserProvider({ children }: IChildren) {
-  const { userAuthenticated, signIn, logout } = useAuth();
+  const { userAuthenticated, signIn, signUp, logout } = useAuth();
 
   return (
-    <UserContext.Provider value={{ userAuthenticated, signIn, logout }}>
+    <UserContext.Provider value={{ userAuthenticated, signIn, signUp, logout }}>
       {children}
     </UserContext.Provider>
   );

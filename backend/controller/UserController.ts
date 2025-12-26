@@ -16,6 +16,7 @@ class UserController {
     confirmPassword,
   }: {
     name: string;
+    nickname: string;
     email: string;
     password: string;
     confirmPassword: string;
@@ -51,16 +52,24 @@ class UserController {
       const token = createUserToken(newUser);
 
       return {
-        id: newUser._id.toString(),
-        name: newUser.name,
-        nickname: newUser.nickname,
-        email: newUser.email,
+        user: {
+          id: newUser._id.toString(),
+          name: newUser.name,
+          nickname: newUser.nickname,
+          email: newUser.email,
+          attributes: {
+            fans: newUser.attributes?.fans ?? 0,
+            cool: newUser.attributes?.cool ?? 0,
+            sexy: newUser.attributes?.sexy ?? 0,
+            trustworthy: newUser.attributes?.trustworthy ?? 0,
+          },
+        },
         token,
       };
     } catch (error) {
       // você pode lançar novamente para GraphQL capturar ou logar o erro
-      console.error("Erro ao criar usuário:", error);
-      throw new Error("Erro ao criar usuário");
+      console.error("Erro ao tentar criar usuário!", error);
+      throw new Error("Erro ao tentar criar usuário!");
     }
   }
 

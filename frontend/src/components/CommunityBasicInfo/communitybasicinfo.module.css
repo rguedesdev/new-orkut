@@ -41,7 +41,12 @@
   border: none;
   height: 1px; /* aumenta um pouco pra enxergar melhor */
   width: 100%;
-  background: linear-gradient(to right, transparent, #0377b9, transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--hr-color),
+    transparent
+  );
 
   margin-top: 20px;
   margin-bottom: 20px;

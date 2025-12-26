@@ -11,7 +11,7 @@ function SignUpComponent() {
   const Context = useContext(UserContext);
   if (!Context) return null;
 
-  const { signIn } = Context;
+  const { signUp } = Context;
 
   const [name, setName] = useState("");
   const [nickname, setNickname] = useState("");
@@ -27,12 +27,12 @@ function SignUpComponent() {
     setSpinner(true);
 
     try {
-      if (!signIn) {
+      if (!signUp) {
         console.log("Contexto de autenticação não disponível!");
         return;
       }
 
-      await signIn(email, password);
+      await signUp(name, nickname, email, password, confirmPassword);
     } catch (err: any) {
       console.error("Erro no login:", err);
       alert(
@@ -60,12 +60,12 @@ function SignUpComponent() {
               <label htmlFor="my-name">Nome</label>
               <input
                 className={styles.myInputs}
-                type="email"
+                type="text"
                 id="myName"
                 name="my-name"
                 placeholder="Digite seu nome"
                 value={name}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
 
@@ -73,12 +73,12 @@ function SignUpComponent() {
               <label htmlFor="my-nickname">Nickname</label>
               <input
                 className={styles.myInputs}
-                type="nickname"
+                type="text"
                 id="myNickname"
                 name="my-nickname"
                 placeholder="Digite seu nickname"
                 value={nickname}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setNickname(e.target.value)}
               />
             </div>
 
@@ -112,12 +112,12 @@ function SignUpComponent() {
               <label htmlFor="my-confirmPassword">Confirme a senha</label>
               <input
                 className={styles.myInputs}
-                type="confirmPassword"
+                type="password"
                 id="myConfirmPassword"
                 name="my-confirmPassword"
                 placeholder="Digite sua senha novamente"
                 value={confirmPassword}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
           </fieldset>

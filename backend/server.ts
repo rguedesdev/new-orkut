@@ -2,6 +2,8 @@ import Fastify from "fastify";
 import Cors from "@fastify/cors";
 import mercurius from "mercurius";
 
+import jwt from "jsonwebtoken";
+
 // Importando configurações do GraphQL
 import { schema, resolvers } from "./graphql/index.js";
 
@@ -12,12 +14,41 @@ await app.register(Cors, {
   methods: ["POST"],
 });
 
-app.register(mercurius, {
+/* app.register(mercurius, {
   schema,
   resolvers,
   graphiql: true,
   context: (request, reply) => {
     return { request, reply }; // aqui vai pro "context" do resolver
+  },
+}); */
+
+app.register(mercurius, {
+  schema,
+  resolvers,
+  ide: true,
+  path: "/graphql",
+
+  context: (request, reply) => {
+    const authHeader = request.headers.authorization;
+
+    let user = null;
+
+    if (authHeader) {
+      const [, token] = authHeader.split(" ");
+
+      try {
+        user = jwt.verify(token as string, process.env.JWT_SECRET as string);
+      } catch {
+        user = null;
+      }
+    }
+
+    return {
+      request,
+      reply,
+      user,
+    };
   },
 });
 
