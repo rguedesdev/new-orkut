@@ -26,13 +26,14 @@ Desenvolvido para compor meu portfólio, este projeto teve como propósito **apl
 ### ✅ Implementadas
 
 - Autenticação com JWT
-- Cadastro e login de usuários (Backend)
+- Cadastro e login de usuários (Backend/Frontend)
 - Integração com MongoDB para persistência de dados
 
 ### 🔜 Em desenvolvimento
 
 - Edição de Perfil
-- Criação de Comunidades
+- Criação de comunidades
+- Busca de comunidades e amigos
 
 ## 💻 Tecnologias utilizadas
 
@@ -44,7 +45,7 @@ Desenvolvido para compor meu portfólio, este projeto teve como propósito **apl
 - JWT (Autenticação)
 - [MongoDB](https://www.mongodb.com/) (Banco de Dados NoSql)
 - [Mongoose](https://mongoosejs.com/) (ORM)
-- [GraphQl] (https://mongoosejs.com/) (Requisições)
+- [GraphQl](https://mongoosejs.com/) (Requisições)
 
 ### 🔹 Frontend
 
@@ -61,6 +62,21 @@ Desenvolvido para compor meu portfólio, este projeto teve como propósito **apl
 
 ## <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/image.svg" width="22" style="filter: invert(1)" /> Prints do Projeto
 
-## 📄 Licença
+- Em breve...
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+## 📄 Licença e Uso
+
+<!-- Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes. -->
+
+© 2025 Reinaldo Guedes. Todos os direitos reservados.
+
+Este repositório **não é open-source**.  
+O código aqui presente foi desenvolvido **exclusivamente para fins de portfólio e avaliação técnica** por recrutadores e empresas.
+
+🚫 **É estritamente proibido**:
+
+- Copiar, clonar, modificar ou redistribuir este código, total ou parcialmente
+- Utilizar este código em projetos pessoais, acadêmicos ou comerciais
+- Reutilizar qualquer parte do código em outros repositórios ou aplicações
+
+Qualquer uso não autorizado está sujeito às penalidades previstas na legislação de direitos autorais.

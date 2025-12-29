@@ -103,7 +103,7 @@ function LoginComponent() {
         <p className={styles.signupBox}>
           <span className={styles.notYetAMember}>Ainda não é membro?</span>{" "}
           <Link href="/signup" className={styles.signUp}>
-            Junte-se ao Orkut!
+            Junte-se ao Orkkut!
           </Link>
         </p>
       </aside>
