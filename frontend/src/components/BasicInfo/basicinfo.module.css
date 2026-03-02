@@ -2,7 +2,7 @@
   min-width: 300px;
   min-height: 700px;
 
-  background-color: #ffffff;
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -63,7 +63,12 @@
   border: none;
   height: 1px; /* aumenta um pouco pra enxergar melhor */
   width: 100%;
-  background: linear-gradient(to right, transparent, #0377b9, transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--hr-color),
+    transparent
+  );
 
   margin-top: 0;
   margin-bottom: 20px;

@@ -139,5 +139,23 @@ class UserController {
       },
     };
   }
+
+  static async searchUsers(search: string) {
+    if (!search || search.trim() === "") {
+      return [];
+    }
+
+    const users = await UserModel.find({
+      $or: [
+        { name: { $regex: search, $options: "i" } },
+        { nickname: { $regex: search, $options: "i" } },
+      ],
+    }).lean();
+
+    return users.map((user) => ({
+      ...user,
+      id: user._id.toString(),
+    }));
+  }
 }
 export default UserController;

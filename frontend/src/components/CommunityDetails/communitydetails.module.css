@@ -1,7 +1,7 @@
 .communityDetailsContainer {
   width: 900px;
   min-height: 250px;
-  background-color: var(--component-bg-color);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -11,9 +11,14 @@
 }
 
 .communityName {
+  color: var(--text-primary);
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.communityDescription {
+  color: var(--text-primary);
 }
 
 .communityInfoContainer {
@@ -22,6 +27,7 @@
 }
 
 .communityInfoColumn {
+  color: var(--text-primary);
   flex: 1; /* Cada coluna ocupa metade do espaço disponível */
 }
 

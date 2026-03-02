@@ -4,21 +4,23 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
+import api from "@/utils/api";
+
 // Style Sheet CSS
-import "./styles.css";
+import styles from "./communityId.module.css";
 
 // Components
+import { Loading } from "@/components/Loading/page";
 import { CommunityBasicInfoComponent } from "@/components/CommunityBasicInfo/page";
 import { CommunityDetailsComponent } from "@/components/CommunityDetails/page";
 import { ForumComponent } from "@/components/Forum/page";
 import { CommunityMembersComponent } from "@/components/CommunityMembers/page";
 import { RelatedCommunitiesComponent } from "@/components/RelatedCommunities/page";
-import api from "@/utils/api";
+import { div, style } from "framer-motion/client";
 
 function CommunityPage() {
+  const [isLoading, setIsLoading] = useState(true);
   const [community, setCommunity] = useState({});
-
-  console.log("Comunidade", community);
 
   const { id } = useParams();
 
@@ -48,7 +50,7 @@ function CommunityPage() {
           },
           {
             headers: token ? { Authorization: `Bearer ${token}` } : undefined,
-          }
+          },
         );
 
         if (response.data.errors) {
@@ -59,24 +61,32 @@ function CommunityPage() {
         setCommunity(response.data.data.community);
       } catch (error) {
         console.error("Erro ao buscar comunidade:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchCommunity();
   }, [id]);
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
-    <main>
-      <CommunityBasicInfoComponent community={community} />
-      <div className="community-central-container">
-        <CommunityDetailsComponent community={community} />
-        <ForumComponent />
-      </div>
-      <div className="community-right-container">
-        <CommunityMembersComponent />
-        <RelatedCommunitiesComponent />
-      </div>
-    </main>
+    <div className={styles.page}>
+      <main className={styles.communityContainer}>
+        <CommunityBasicInfoComponent community={community} />
+        <div className={styles.communityCentralContainer}>
+          <CommunityDetailsComponent community={community} />
+          <ForumComponent />
+        </div>
+        <div className={styles.communityRightContainer}>
+          <CommunityMembersComponent />
+          <RelatedCommunitiesComponent />
+        </div>
+      </main>
+    </div>
   );
 }
 

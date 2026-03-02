@@ -13,7 +13,6 @@ import { TbCategory2 } from "react-icons/tb";
 import { LiaGlobeAmericasSolid } from "react-icons/lia";
 import { FaShieldHalved } from "react-icons/fa6";
 import { RiVipCrownLine } from "react-icons/ri";
-import { style } from "framer-motion/client";
 
 function CommunityDetailsComponent({ community }) {
   return (
@@ -25,7 +24,7 @@ function CommunityDetailsComponent({ community }) {
           "Vivendo e aprendendo!" - Oe Kintaro.
         </blockquote> */}
 
-        <p>{community.description}</p>
+        <p className={styles.communityDescription}>{community.description}</p>
 
         <hr className={styles.communityDetailsHrFaded} />
 
@@ -50,8 +49,8 @@ function CommunityDetailsComponent({ community }) {
                   {community.privacy === "public"
                     ? "Público"
                     : community.privacy === "private"
-                    ? "Privado"
-                    : "Secreto"}
+                      ? "Privado"
+                      : "Secreto"}
                 </span>
               </dd>
             </div>

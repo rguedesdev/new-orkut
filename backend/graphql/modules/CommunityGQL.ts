@@ -9,6 +9,7 @@ const communityTypeDefs = /* GraphQL */ `
 
   extend type Query {
     community(id: ID!): Community
+    # searchCommunities(search: String!): [Community!]!
   }
 
   ### INPUTS ###
@@ -46,6 +47,14 @@ const communityResolvers = {
 
       return CommunityController.getCommunityById(id);
     },
+
+    // searchCommunities: (_: any, { search }: any, context: any) => {
+    //   if (!context.user) {
+    //     throw new Error("Usuário não autenticado");
+    //   }
+
+    //   return CommunityController.searchCommunities(search);
+    // },
   },
 
   Mutation: {

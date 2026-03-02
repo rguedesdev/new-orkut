@@ -1,7 +1,7 @@
 .communityMembersContainer {
   width: 460px;
   height: auto;
-  background-color: var(--component-bg-color);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -13,6 +13,7 @@
 }
 
 .communityMembersTitle {
+  color: var(--text-primary);
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -53,6 +54,7 @@
 }
 
 .memberNameNickname {
+  color: var(--text-primary);
   text-align: center; /* centraliza o nome dentro do bloco */
   margin: 0;
   font-size: 0.95rem;

@@ -1,4 +1,8 @@
-main {
+.page {
+  max-height: 100vh;
+}
+
+.communityContainer {
   max-width: 1700px;
   height: auto;
   margin-left: auto;
@@ -10,13 +14,13 @@ main {
   gap: 20px;
 }
 
-.community-central-container {
+.communityCentralContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.community-right-container {
+.communityRightContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;

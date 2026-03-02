@@ -1,7 +1,7 @@
 .searchAsideContainer {
   width: 400px;
   min-height: 250px;
-  background-color: var(--component-bg-color);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -10,12 +10,14 @@
 }
 
 .searchAsideTitle {
+  color: var(--text-primary);
+  font-size: 18px;
   margin-top: 0;
   margin-bottom: 20px;
-  font-size: 18px;
 }
 
 .categoriesList {
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   gap: 5px;

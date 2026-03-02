@@ -15,7 +15,7 @@
 ![AWS](https://img.shields.io/badge/AWS-141f2e?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
 
-Este é um projeto de redesign e modernização da antiga rede social **Orkut**. Não é apenas um clone, é uma reimaginação de como seria o Orkut se tivesse persistido ao tempo.
+Este é um projeto de redesign e modernização da antiga rede social **Orkut**. Não é apenas um clone, é uma reimaginação de como seria o Orkut se tivesse persistido ao tempo e uma homenagem.
 
 ## 🎯 Objetivo
 
@@ -68,10 +68,9 @@ Desenvolvido para compor meu portfólio, este projeto teve como propósito **apl
 
 <!-- Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes. -->
 
-© 2025 Reinaldo Guedes. Todos os direitos reservados.
+© 2026 Reinaldo Guedes. Todos os direitos reservados.
 
-Este repositório **não é open-source**.  
-O código aqui presente foi desenvolvido **exclusivamente para fins de portfólio e avaliação técnica** por recrutadores e empresas.
+Este repositório **não é open-source**. O código aqui presente foi desenvolvido **exclusivamente para fins de portfólio e avaliação técnica** por recrutadores e empresas.
 
 🚫 **É estritamente proibido**:
 

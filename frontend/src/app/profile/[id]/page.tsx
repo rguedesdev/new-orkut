@@ -19,6 +19,7 @@ import { ProfileDetailsComponent } from "@/components/ProfileDetails/page";
 import { TestimonialsComponent } from "@/components/Testimonials/page";
 import { FriendsComponent } from "@/components/Friends/page";
 import { MyCommunitiesComponent } from "@/components/MyCommunities/page";
+import { div } from "framer-motion/client";
 
 function Profile() {
   const [isLoading, setIsLoading] = useState(true);
@@ -65,7 +66,7 @@ function Profile() {
             headers: {
               Authorization: `Bearer ${token}`,
             },
-          }
+          },
         );
 
         // DEBUG REAL
@@ -94,17 +95,19 @@ function Profile() {
   }
 
   return (
-    <main className={styles.mainContainer}>
-      {user && <BasicInfoComponent user={user} />}
-      <div className={styles.centralContainer}>
-        {user && <ProfileDetailsComponent user={user} />}
-        <TestimonialsComponent />
-      </div>
-      <div className={styles.rightContainer}>
-        <FriendsComponent />
-        <MyCommunitiesComponent />
-      </div>
-    </main>
+    <div className={styles.page}>
+      <main className={styles.mainContainer}>
+        {user && <BasicInfoComponent user={user} />}
+        <div className={styles.centralContainer}>
+          {user && <ProfileDetailsComponent user={user} />}
+          <TestimonialsComponent />
+        </div>
+        <div className={styles.rightContainer}>
+          <FriendsComponent />
+          <MyCommunitiesComponent />
+        </div>
+      </main>
+    </div>
   );
 }
 

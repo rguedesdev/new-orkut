@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 
 // CSS Global
 import "./globals.css";
@@ -11,14 +11,10 @@ import { Footer } from "@/components/Footer/page";
 // Providers do Context
 import { UserProvider } from "@/context/UserContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "700"], // escolha os pesos que vai usar
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -29,14 +25,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${roboto.variable} antialiased`}>
         <UserProvider>
           <Navbar />
           <div className="site-content">{children}</div>
@@ -46,3 +38,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default RootLayout;

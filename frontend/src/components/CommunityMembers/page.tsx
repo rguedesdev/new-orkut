@@ -13,15 +13,15 @@ import Kon from "../../../public/kon.jpg";
 
 function CommunityMembersComponent() {
   const members = [
+    { name: "Kon Sama", img: Kon },
     { name: "Rika Get Set", img: Kon },
-    { name: "Rika Get Set", img: Kon },
-    { name: "Rika Get Set", img: Kon },
-    { name: "Rika Get Set", img: Kon },
-    { name: "Rika Get Set", img: Kon },
-    { name: "Rika Get Set", img: Kon },
-    { name: "Rika Get Set", img: Kon },
-    { name: "Rika Get Set", img: Kon },
-    { name: "Rika Get Set", img: Kon },
+    { name: "Muh", img: Kon },
+    { name: "Saga", img: Kon },
+    { name: "Julee", img: Kon },
+    { name: "Gabi Orihime", img: Kon },
+    { name: "Miaka", img: Kon },
+    { name: "Ree", img: Kon },
+    { name: "Nika", img: Kon },
   ];
 
   return (

@@ -1,9 +1,9 @@
-.searchContainer {
+.searchMainContainer {
   width: 900px;
   min-height: 205px;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--component-bg-color);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -18,13 +18,14 @@
   margin-left: 30px;
   margin-bottom: 5px;
   font-size: 20px;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .searchSubtitle {
   margin-left: 30px;
   margin-bottom: 10px;
   font-size: 15px;
+  color: var(--text-primary);
 }
 
 .searchInput input[type="search"] {
@@ -33,7 +34,7 @@
   background-color: #f0f5fc;
   color: #353535;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 0 10px 0 20px;
   font-size: 16px;
   outline: none;
@@ -41,28 +42,26 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  transition: background-color 0.2s ease-in, border-color 0.2s ease-in,
-    outline-color 0.2s ease-in, outline-offset 0.2s ease-in;
+  transition:
+    background-color 0.2s ease-in,
+    border-color 0.2s ease-in,
+    outline-color 0.2s ease-in,
+    outline-offset 0.2s ease-in;
 }
 
-.searchContainer input[type="search"]::placeholder {
-  color: #bbb;
+.searchMainContainer input[type="search"]::placeholder {
+  color: #989898;
 }
 
-/* .searchContainer input[type="search"]:focus {
-  box-shadow: 0 0 5px 3px #ed2590;
+.searchMainContainer input[type="search"]:focus {
   background-color: #f0f5fc;
-} */
-
-.searchContainer input[type="search"]:focus {
-  background-color: #f0f5fc;
-  border: 1px solid #ed2590;
-  outline: 2px solid #ed2590;
-  outline-offset: 2px;
+  border: 3px solid #ed2590;
+  /* outline: 2px solid #ed2590;
+  outline-offset: 2px; */
 }
 
 /* Search Icon */
-.searchContainer .searchIcon {
+.searchMainContainer .searchIcon {
   position: absolute;
   top: 208px;
   left: 1880px;
@@ -94,4 +93,19 @@
   height: 80px;
   border-radius: 4px;
   object-fit: cover;
+}
+
+.searchResultTexts {
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.searchResultTitle {
+  font-weight: 500;
+}
+
+.searchResultInfo {
+  font-size: 0.9em;
 }

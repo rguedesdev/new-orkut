@@ -64,6 +64,21 @@ class CommunityController {
       id: community._id.toString(), // Cria o campo 'id' que o Schema exige usando o valor do '_id'
     };
   }
+
+  static async searchCommunities(search: string) {
+    if (!search || search.trim() === "") {
+      return [];
+    }
+
+    const communities = await CommunityModel.find({
+      name: { $regex: search, $options: "i" }, // busca case insensitive
+    }).lean();
+
+    return communities.map((community) => ({
+      ...community,
+      id: community._id.toString(),
+    }));
+  }
 }
 
 export default CommunityController;

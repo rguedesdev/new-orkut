@@ -1,9 +1,10 @@
 .forumContainer {
   width: 900px;
   height: auto;
-  background-color: var(--component-bg-color);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: var(--text-primary);
 
   padding: 30px;
 }
@@ -34,7 +35,9 @@
   justify-content: center;
   gap: 10px;
 
-  transition: background-color 0.2s ease-in, transform 0.2s ease-in;
+  transition:
+    background-color 0.2s ease-in,
+    transform 0.2s ease-in;
 }
 
 .createTopicBtn:hover {
@@ -78,6 +81,13 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  transition: all ease-in 0.15s;
+}
+
+.topicTitle:hover {
+  color: #025d92;
+  text-decoration: underline;
 }
 
 .topicInfo {

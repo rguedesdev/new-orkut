@@ -1,4 +1,8 @@
-.Main {
+.page {
+  min-height: 100vh;
+}
+
+.searchContainer {
   max-width: 1700px;
   height: auto;
   margin-top: 30px;

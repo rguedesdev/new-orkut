@@ -19,7 +19,7 @@ import { AiOutlineFileText } from "react-icons/ai";
 import { RiMegaphoneLine } from "react-icons/ri";
 
 // Images
-import EuOdeio from "../../../public/eu_odeio_ia.png";
+import EuOdeio from "../../../public/eu_odeio2.png";
 
 function CommunityBasicInfoComponent({ community }) {
   return (
