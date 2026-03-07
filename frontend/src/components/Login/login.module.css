@@ -1,8 +1,8 @@
 .loginBox {
-  width: 350px;
+  width: 360px;
   height: 380px;
-  background-color: var(--card-bg-color);
-
+  background-color: #e6ecf6;
+  border: 1px solid #025d92;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -14,10 +14,10 @@
     box-shadow 0.2s ease;
 }
 
-.loginBox:hover {
+/* .loginBox:hover {
   transform: scaleY(-5px);
-  box-shadow: 0 0 12px 3px #025d92;
-}
+  box-shadow: 0 0 2px 3px #025d92;
+} */
 
 .loginTitle {
   font-size: 1.5rem;
@@ -40,19 +40,16 @@
 }
 
 .myInputs {
-  background-color: #d4dded;
-  border: 2px solid transparent;
+  background-color: #ffffff;
+  border: 1px solid #025d92;
   border-radius: 4px;
   padding: 0 10px;
   height: 50px;
   min-width: 300px;
   font-size: 14px;
-
   outline: none;
-  transition:
-    border-color 0.15s ease,
-    outline 0.15s ease,
-    box-shadow 0.15s ease;
+
+  transition: border-color 0.2s ease;
 }
 
 .myInputs::placeholder {
@@ -60,11 +57,8 @@
 }
 
 .myInputs:focus {
-  border-color: #7fbfff;
-  outline: 2px solid #7fbfff;
-  outline-offset: 0.8px;
-  background-color: #d4dded;
-  box-shadow: none;
+  border: 2px solid #025d92;
+  background-color: #ffffff;
 }
 
 .btnEnter {
@@ -111,10 +105,10 @@
 }
 
 .notMemberBox {
-  width: 350px;
+  width: 360px;
   height: 160px;
-  background-color: var(--component-bg-color);
-
+  background-color: #e6ecf6;
+  border: 1px solid #025d92;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -125,10 +119,10 @@
     box-shadow 0.2s ease;
 }
 
-.notMemberBox:hover {
+/* .notMemberBox:hover {
   transform: scaleY(-5px);
-  box-shadow: 0 0 12px 3px #025d92;
-}
+  box-shadow: 0 0 2px 3px #025d92;
+} */
 
 .signupBox {
   display: flex;

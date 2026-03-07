@@ -15,6 +15,7 @@ body,
   --nav-bg-color: #ffffff;
   --bg-color: #d4dded;
   --card-bg-color: #ffffff;
+  --thoughts-bg-color: #f0f5fc;
   --footer-bg-color: #ffffff;
   --hr-color: #0377b9;
 }
@@ -24,6 +25,7 @@ body,
   --text-primary: #ffffff;
   --bg-color: #0b1622;
   --card-bg-color: #152232;
+  --thoughts-bg-color: #15283c;
   --hr-color: #ed2590;
 }
 

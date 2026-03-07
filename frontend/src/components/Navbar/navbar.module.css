@@ -70,14 +70,15 @@
 .searchContainer input[type="search"] {
   background-color: #f0f5fc;
   color: #353535;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 4px;
-  padding: 0 10px 0 35px; /* espaço à esquerda para o ícone */
+  padding: 0 10px 0 35px;
   height: 35px;
   min-width: 300px;
   font-size: 14px;
   outline: none;
-  transition: box-shadow 0.3s ease;
+
+  transition: border-color 0.2s ease;
 }
 
 .searchContainer input[type="search"]::placeholder {
@@ -85,7 +86,7 @@
 }
 
 .searchContainer input[type="search"]:focus {
-  box-shadow: 0 0 5px 2px #ed2590;
+  border-color: #ed2590;
   background-color: #f0f5fc;
 }
 

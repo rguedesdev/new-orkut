@@ -11,7 +11,7 @@ function WelcomeComponent() {
   return (
     <section className={styles.welcomeBox}>
       <p>
-        O Orkut é uma rede social para conhecer pessoas e fazer amigos.
+        O Orkkut é uma rede social para conhecer pessoas e fazer amigos.
         Cadastre-se gratuitamente e conecte-se com seus amigos, familiares e
         colegas de trabalho. Compartilhe fotos, recados e experiências, e
         mantenha contato com quem você gosta.
@@ -24,7 +24,7 @@ function WelcomeComponent() {
         height={0}
         priority
       />
-      <p>Junte-se ao Orkut para expandir seu ciclo social de amigos!</p>
+      <p>Junte-se ao Orkkut para expandir seu ciclo social de amigos!</p>
     </section>
   );
 }

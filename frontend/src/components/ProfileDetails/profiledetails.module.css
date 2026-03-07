@@ -1,6 +1,7 @@
 .profileDetailsContainer {
   min-width: 900px;
   min-height: 400px;
+  color: var(--text-primary);
   background-color: var(--card-bg-color);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -36,7 +37,7 @@
   position: relative; /* necessário para posicionar a ponta */
   width: 100%;
   height: auto;
-  background-color: #f0f5fc;
+  background-color: var(--thoughts-bg-color);
   border-radius: 5px;
   padding: 10px;
 }
@@ -49,7 +50,7 @@
   left: 20px; /* distancia da esquerda onde a ponta começa */
   border-width: 0 10px 10px 10px; /* cria triângulo invertido */
   border-style: solid;
-  border-color: transparent transparent #f0f5fc transparent;
+  border-color: transparent transparent var(--thoughts-bg-color) transparent;
 }
 
 .attributesContainer {

@@ -51,10 +51,16 @@ function HomePage() {
   }, [router]);
 
   return (
-    <main className={styles.container}>
-      <WelcomeComponent />
-      <LoginComponent />
-    </main>
+    <>
+      <div role="alert">
+        Não temos nenhum vínculo com a Alphabet/Google ou com o Orkut
+        Buyukkokten, somos apenas um site revival feito de fã para fã!
+      </div>
+      <main className={styles.container}>
+        <WelcomeComponent />
+        <LoginComponent />
+      </main>
+    </>
   );
 }
 
