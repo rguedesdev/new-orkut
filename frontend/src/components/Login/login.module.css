@@ -2,7 +2,7 @@
   width: 360px;
   height: 380px;
   background-color: #e6ecf6;
-  border: 1px solid #025d92;
+  border: 1px solid rgba(2, 93, 146, 0.4);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -41,7 +41,7 @@
 
 .myInputs {
   background-color: #ffffff;
-  border: 1px solid #025d92;
+  border: 1px solid rgba(2, 93, 146, 0.4);
   border-radius: 4px;
   padding: 0 10px;
   height: 50px;
@@ -58,7 +58,7 @@
 
 .myInputs:focus {
   border: 2px solid #025d92;
-  background-color: #ffffff;
+  padding: 0 9px;
 }
 
 .btnEnter {
@@ -108,7 +108,7 @@
   width: 360px;
   height: 160px;
   background-color: #e6ecf6;
-  border: 1px solid #025d92;
+  border: 1px solid rgba(2, 93, 146, 0.4);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -133,7 +133,7 @@
   height: 100%; /* ocupa toda altura do .not-member-box */
 }
 
-.notYetAMember {
+.notYetAMemberTitle {
   font-size: 1.2rem;
   font-weight: bold;
 }

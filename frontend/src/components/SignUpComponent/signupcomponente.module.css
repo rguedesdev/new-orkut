@@ -1,8 +1,8 @@
 .signUpBox {
   width: 600px;
   height: 600px;
-  background-color: var(--card-bg-color);
-
+  background-color: #e6ecf6;
+  border: 1px solid rgba(2, 93, 146, 0.4);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -40,8 +40,8 @@
 }
 
 .myInputs {
-  background-color: #d4dded;
-  border: 2px solid transparent;
+  background-color: #ffffff;
+  border: 1px solid rgba(2, 93, 146, 0.4);
   border-radius: 4px;
   padding: 0 10px;
   height: 50px;
@@ -60,11 +60,8 @@
 }
 
 .myInputs:focus {
-  border-color: #7fbfff;
-  outline: 2px solid #7fbfff;
-  outline-offset: 0.8px;
-  background-color: #d4dded;
-  box-shadow: none;
+  border: 2px solid #025d92;
+  padding: 0 9px;
 }
 
 .btnEnter {
@@ -113,8 +110,8 @@
 .memberBox {
   width: 600px;
   height: 160px;
-  background-color: var(--card-bg-color);
-
+  background-color: #e6ecf6;
+  border: 1px solid rgba(2, 93, 146, 0.4);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -139,7 +136,7 @@
   height: 100%; /* ocupa toda altura do .not-member-box */
 }
 
-.notYetAMember {
+.memberTitle {
   font-size: 1.2rem;
   font-weight: bold;
 }

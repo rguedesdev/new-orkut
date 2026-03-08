@@ -38,7 +38,7 @@ function SignUpComponent() {
       alert(
         `❌ Falha ao fazer login: ${
           err.message || "Verifique suas credenciais"
-        }`
+        }`,
       );
     } finally {
       setSpinner(false);
@@ -143,7 +143,7 @@ function SignUpComponent() {
 
       <aside className={styles.memberBox}>
         <p className={styles.signupBox}>
-          <span className={styles.notYetAMember}>Já é membro?</span>{" "}
+          <span className={styles.memberTitle}>Já é membro?</span>
           <Link href="/" className={styles.signUp}>
             Faça login!
           </Link>

@@ -17,7 +17,9 @@ body,
   --card-bg-color: #ffffff;
   --thoughts-bg-color: #f0f5fc;
   --footer-bg-color: #ffffff;
-  --hr-color: #0377b9;
+  --hr-color: #ed2590;
+  --seeAll-color: #0377b9;
+  --seeAllHover-color: #ed2590;
 }
 
 /* Tema Escuro */
@@ -26,7 +28,9 @@ body,
   --bg-color: #0b1622;
   --card-bg-color: #152232;
   --thoughts-bg-color: #15283c;
-  --hr-color: #ed2590;
+  --hr-color: #0377b9;
+  --seeAll-color: #ed2590;
+  --seeAllHover-color: #0377b9;
 }
 
 body {

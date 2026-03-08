@@ -80,7 +80,7 @@
 .seeAllRelatedCommunities {
   font-size: 1.1rem;
   font-weight: bold;
-  color: #ed2590;
+  color: var(--seeAll-color);
 
   display: flex;
   flex-direction: row;
@@ -94,6 +94,6 @@
 }
 
 .seeAllRelatedCommunities:hover {
-  color: #0377b9;
+  color: var(--seeAllHover-color);
   cursor: pointer;
 }

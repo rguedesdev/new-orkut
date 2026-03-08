@@ -35,7 +35,7 @@ function LoginComponent() {
       alert(
         `❌ Falha ao fazer login: ${
           err.message || "Verifique suas credenciais"
-        }`
+        }`,
       );
     } finally {
       setSpinner(false);
@@ -101,7 +101,7 @@ function LoginComponent() {
 
       <aside className={styles.notMemberBox}>
         <p className={styles.signupBox}>
-          <span className={styles.notYetAMember}>Ainda não é membro?</span>{" "}
+          <span className={styles.notYetAMemberTitle}>Ainda não é membro?</span>{" "}
           <Link href="/signup" className={styles.signUp}>
             Junte-se ao Orkkut!
           </Link>

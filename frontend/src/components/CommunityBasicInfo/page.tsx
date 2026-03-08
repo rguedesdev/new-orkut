@@ -81,17 +81,26 @@ function CommunityBasicInfoComponent({ community }) {
 
         <div className={styles.communityLinksActions}>
           <h2 className={styles.actionTitle}>Ações</h2>
+
           <Link className={styles.communityLinkAction} href={`/`}>
-            <RiUserCommunityLine size={22} />
+            <span className={styles.iconWrapper}>
+              <RiUserCommunityLine size={22} />
+            </span>
+
             <span>Entrar na Comunidade</span>
           </Link>
+
           <Link className={styles.communityLinkAction} href={`/`}>
-            <RiCloseCircleLine size={23} />
+            <span className={styles.iconWrapper}>
+              <RiCloseCircleLine size={23} />
+            </span>
             <span>Sair da Comunidade</span>
           </Link>
 
           <Link className={styles.communityLinkAction} href={`/`}>
-            <GoCircleSlash size={23} />
+            <span className={styles.iconWrapper}>
+              <GoCircleSlash size={20} />
+            </span>
             <span>Denunciar Comunidade</span>
           </Link>
         </div>
