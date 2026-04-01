@@ -33,11 +33,9 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { TbLogout } from "react-icons/tb";
 
 // Images
-import Logo from "../../public/orkut_logo.png";
-import Logo2 from "../../public/orkut_logo2.png";
-import Logo3 from "../../../public/orkut_logo3.png";
+import LogoLight from "../../../public/orkkut_logo1.png";
+import LogoDark from "../../../public/orkkut_logo2.png";
 import Kon from "../../../public/kon.jpg";
-import { header } from "framer-motion/client";
 
 function Navbar() {
   // const authenticated = useContext(UserContext);
@@ -48,6 +46,21 @@ function Navbar() {
 
   const { userAuthenticated, logout } = Context;
 
+  const [_, forceUpdate] = useState(0);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      forceUpdate((n) => n + 1);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     setDropdownOpen(false);
   }, []);
@@ -57,7 +70,12 @@ function Navbar() {
       <nav className={styles.navbar}>
         <Image
           className={styles.logo}
-          src={Logo3}
+          src={
+            typeof document !== "undefined" &&
+            document.documentElement.getAttribute("data-theme") === "dark"
+              ? LogoDark
+              : LogoLight
+          }
           alt="Logo"
           width={120}
           height={0}

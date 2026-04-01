@@ -83,7 +83,7 @@
   display: flex;
   gap: 10px;
   padding: 10px;
-  border: 1px solid #0376b920;
+  border: 1px solid #ed2590;
   border-radius: 4px;
   margin-bottom: 30px;
   cursor: pointer;
@@ -91,7 +91,7 @@
 }
 
 .searchResult:hover {
-  background-color: #f0f5fc;
+  background-color: #ed2590;
   box-shadow: rgba(0, 0, 0, 0.1);
 }
 

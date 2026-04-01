@@ -3,6 +3,7 @@
 // Imports Principais
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // Api Axios
 import api from "@/utils/api";
@@ -19,13 +20,13 @@ import { IoSearch } from "react-icons/io5";
 import Comu from "../../../public/eu_odeio2.png";
 
 function SearchMain() {
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [results, setResult] = useState({
     users: [] as any[],
     communities: [] as any[],
   });
   const [isLoading, setIsLoading] = useState(false);
-
   const [hasSearched, setHasSearched] = useState(false);
 
   const handdleSearch = async () => {
@@ -104,11 +105,15 @@ function SearchMain() {
 
       {results.communities.length > 0 && (
         <>
-          <h2 className={styles.resultTitle}>Comunidades</h2>
+          <h2 className={styles.resultTitle}>Comunidades encontradas:</h2>
 
           <div className={styles.usersResultContainer}>
             {results.communities.map((community) => (
-              <div key={community.id} className={styles.searchResult}>
+              <div
+                key={community.id}
+                className={styles.searchResult}
+                onClick={() => router.push(`/community/${community.id}`)}
+              >
                 <Image
                   className={styles.searchImage}
                   src={Comu}
@@ -119,8 +124,8 @@ function SearchMain() {
                 <div className={styles.searchResultTexts}>
                   <h3 className={styles.searchResultTitle}>{community.name}</h3>
                   <div className={styles.searchResultInfo}>
-                    <h4>{community.members} membros</h4>
-                    <h5>{community.category}</h5>
+                    <h4>{`• ${community.members} membros`}</h4>
+                    <h5>{`• ${community.category}`}</h5>
                   </div>
                 </div>
               </div>
@@ -131,11 +136,15 @@ function SearchMain() {
 
       {results.users.length > 0 && (
         <>
-          <h2 className={styles.resultTitle}>Usuários</h2>
+          <h2 className={styles.resultTitle}>Usuários encontrados:</h2>
 
           <div className={styles.usersResultContainer}>
             {results.users.map((user) => (
-              <div key={`${user.id}`} className={styles.searchResult}>
+              <div
+                key={`${user.id}`}
+                className={styles.searchResult}
+                onClick={() => router.push(`/profile/${user.id}`)}
+              >
                 <Image
                   className={styles.searchImage}
                   src={Comu}

@@ -1,7 +1,7 @@
 "use client";
 
 // Imports Principais
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 // Axios
@@ -52,10 +52,12 @@ function HomePage() {
 
   return (
     <>
-      <div role="alert">
-        Não temos nenhum vínculo com a Alphabet/Google ou com o Orkut
-        Buyukkokten, somos apenas um site revival feito de fã para fã!
-      </div>
+      <aside className={styles.infoBanner}>
+        <p className={styles.boujeeText}>
+          Não temos nenhum vínculo com a Alphabet/Google nem com o Orkut
+          Buyukkokten. Somos apenas um site feito por fãs, para fãs.
+        </p>
+      </aside>
       <main className={styles.container}>
         <WelcomeComponent />
         <LoginComponent />

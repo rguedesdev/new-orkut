@@ -5,8 +5,8 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <h1>
-        @ 2026 Orkkut. | Não temos nenhum vínculo com a Alphabet/Google ou com o
-        Orkut Buyukkokten, somos apenas um site revival feito de fã para fã!
+        @ 2026 Orkkut. | Não temos nenhum vínculo com a Alphabet/Google nem com
+        o Orkut Buyukkokten. Somos apenas um site feito por fãs, para fãs.
       </h1>
     </footer>
   );

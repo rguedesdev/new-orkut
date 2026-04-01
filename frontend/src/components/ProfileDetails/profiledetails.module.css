@@ -77,6 +77,12 @@
   gap: 5px;
 }
 
+.attributeInfoSexy {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .fansAttributeIcon {
   color: #ffbf00;
 }

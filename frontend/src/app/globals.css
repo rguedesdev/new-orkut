@@ -13,10 +13,12 @@ body,
 :root {
   --text-primary: #353535;
   --nav-bg-color: #ffffff;
+  --link-color: #0377b9;
+  --link-color-hover: #ed2590;
+  --footer-bg-color: #ffffff;
   --bg-color: #d4dded;
   --card-bg-color: #ffffff;
   --thoughts-bg-color: #f0f5fc;
-  --footer-bg-color: #ffffff;
   --hr-color: #ed2590;
   --seeAll-color: #0377b9;
   --seeAllHover-color: #ed2590;
@@ -25,6 +27,10 @@ body,
 /* Tema Escuro */
 [data-theme="dark"] {
   --text-primary: #ffffff;
+  --nav-bg-color: #152232;
+  --link-color: #ed2590;
+  --link-color-hover: #0377b9;
+  --footer-bg-color: #152232;
   --bg-color: #0b1622;
   --card-bg-color: #152232;
   --thoughts-bg-color: #15283c;

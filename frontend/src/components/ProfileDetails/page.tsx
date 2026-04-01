@@ -58,7 +58,7 @@ function ProfileDetailsComponent({ user }) {
 
           <li className={styles.attributeContainer}>
             <h2 className={styles.attributeTitle}>Sexy</h2>
-            <div className={styles.attributeInfo}>
+            <div className={styles.attributeInfoSexy}>
               <IoHeart className={styles.sexyAttributeIcon} size={25} />
               <IoHeart className={styles.sexyAttributeIcon} size={25} />
               <IoHeartOutline className={styles.sexyAttributeIcon} size={25} />
