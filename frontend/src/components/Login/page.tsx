@@ -54,12 +54,12 @@ function LoginComponent() {
             {/* <legend>Informações de Login</legend> */}
 
             <div className={styles.inputContainer}>
-              <label htmlFor="my-email">Email</label>
+              <label htmlFor="email">Email</label>
               <input
                 className={styles.myInputs}
                 type="email"
-                id="myEmail"
-                name="my-email"
+                id="email"
+                name="email"
                 placeholder="Digite seu email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -67,12 +67,12 @@ function LoginComponent() {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="my-password">Senha</label>
+              <label htmlFor="password">Senha</label>
               <input
                 className={styles.myInputs}
                 type="password"
-                id="myPassword"
-                name="my-password"
+                id="password"
+                name="password"
                 placeholder="Digite sua senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

@@ -7,20 +7,24 @@ import { useAuth } from "@/hooks/useAuth";
 // Tipagem do que o contexto vai fornecer
 interface IUserContext {
   userAuthenticated: boolean;
+
   signIn: (
     email: string,
-    password: string
+    password: string,
   ) => Promise<{
     user: { id: string; name: string; email: string };
     token: string;
   }>;
+
   signUp: (
     name: string,
     nickname: string,
     email: string,
     password: string,
-    confirmPassword: string
+    confirmPassword: string,
+    invitation: string,
   ) => Promise<void>;
+
   logout: () => void;
 }
 

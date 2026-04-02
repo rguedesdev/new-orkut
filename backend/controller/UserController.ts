@@ -1,6 +1,7 @@
 // imports principais
-import bcrypt from "bcrypt";
 import { UserModel } from "../models/UserModel.js";
+import { InvitationModel } from "../models/InvitationModel.js";
+import bcrypt from "bcrypt";
 
 // Middlewares
 import { createUserToken } from "../helpers/create-user-token.js";
@@ -9,23 +10,31 @@ import { getUserByToken } from "../helpers/get-user-by-token.js";
 
 class UserController {
   static async signUp({
+    invitation,
     name,
     nickname,
     email,
     password,
     confirmPassword,
   }: {
+    invitation: string;
     name: string;
     nickname: string;
     email: string;
     password: string;
     confirmPassword: string;
   }) {
+    if (!invitation) throw new Error("O código de convite é obrigatório!");
+
     if (!name) throw new Error("O nome é obrigatório!");
+
     if (!email) throw new Error("O email é obrigatório!");
+
     if (!password) throw new Error("A senha é obrigatória!");
+
     if (!confirmPassword)
       throw new Error("A confirmação da senha é obrigatória!");
+
     if (password !== confirmPassword)
       throw new Error("As senhas precisam ser iguais!");
 
@@ -39,7 +48,23 @@ class UserController {
     }
 
     try {
+      const invitationDoc = await InvitationModel.findOneAndUpdate(
+        {
+          code: invitation,
+          used: false,
+        },
+        {
+          used: true,
+        },
+        { new: true },
+      );
+
+      if (!invitationDoc) {
+        throw new Error("Convite inválido ou já utilizado!");
+      }
+
       const user = new UserModel({
+        accountType: "user",
         profilePicture: "",
         name: name,
         nickname: nickname,
@@ -48,6 +73,11 @@ class UserController {
       });
 
       const newUser = await user.save();
+
+      await InvitationModel.updateOne(
+        { _id: invitationDoc._id },
+        { usedBy: newUser._id.toString() },
+      );
 
       const token = createUserToken(newUser);
 
@@ -156,6 +186,19 @@ class UserController {
       ...user,
       id: user._id.toString(),
     }));
+  }
+
+  static async getUserById(id: string) {
+    const user = await UserModel.findById(id).lean();
+
+    if (!user) {
+      throw new Error("Usuário não encontrado!");
+    }
+
+    return {
+      ...user,
+      id: user._id.toString(),
+    };
   }
 }
 export default UserController;

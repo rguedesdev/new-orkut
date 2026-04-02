@@ -4,11 +4,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-import { setCookie } from "cookies-next";
-
 // Axios
 import api from "@/utils/api";
-import { input } from "framer-motion/client";
 
 // Tipagens
 type TUser = { id: string; name: string; email: string };
@@ -34,7 +31,7 @@ function useAuth() {
   // Função de login
   async function signIn(
     email: string,
-    password: string
+    password: string,
   ): Promise<TAuthPayload> {
     const mutation = `
     mutation signIn($input: SignInInput!) {
@@ -79,7 +76,8 @@ function useAuth() {
     nickname: string,
     email: string,
     password: string,
-    confirmPassword: string
+    confirmPassword: string,
+    invitation: string,
   ) {
     const mutation = `
       mutation signUp($input: SignUpInput!, $confirmPassword: String!) {
@@ -96,7 +94,7 @@ function useAuth() {
     `;
 
     const variables = {
-      input: { name, nickname, email, password },
+      input: { name, nickname, email, password, invitation },
       confirmPassword,
     };
 
@@ -143,13 +141,6 @@ function useAuth() {
     // Redireciona para a página do usuário
     router.push(`/profile/${userId}`);
   }
-
-  // async function authUser(data: TAuthPayload) {
-  //   setUserAuthenticated(true);
-  //   localStorage.setItem("token", JSON.stringify(data.token));
-  //   api.defaults.headers.Authorization = `Bearer ${data.token}`;
-  //   router.push("/pt/profile");
-  // }
 
   return {
     userAuthenticated,

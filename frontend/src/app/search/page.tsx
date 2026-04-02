@@ -8,7 +8,7 @@ import { SearchMain } from "@/components/SearchMain/page";
 // Icons
 import { IoSearch } from "react-icons/io5";
 
-function Search() {
+function SearchPage() {
   return (
     <div className={styles.page}>
       <main className={styles.searchContainer}>
@@ -19,4 +19,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchPage;

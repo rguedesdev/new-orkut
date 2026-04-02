@@ -14,15 +14,6 @@ await app.register(Cors, {
   methods: ["POST"],
 });
 
-/* app.register(mercurius, {
-  schema,
-  resolvers,
-  graphiql: true,
-  context: (request, reply) => {
-    return { request, reply }; // aqui vai pro "context" do resolver
-  },
-}); */
-
 app.register(mercurius, {
   schema,
   resolvers,

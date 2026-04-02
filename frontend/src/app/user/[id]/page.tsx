@@ -2,7 +2,7 @@
 
 // Imports Principais
 import { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 
 import api from "@/utils/api";
 
@@ -10,7 +10,7 @@ import api from "@/utils/api";
 import { UserContext } from "@/context/UserContext";
 
 // Style Sheet CSS
-import styles from "./profile.module.css";
+import styles from "./user.module.css";
 
 // Components
 import { Loading } from "@/components/Loading/page";
@@ -21,46 +21,45 @@ import { FriendsComponent } from "@/components/Friends/page";
 import { MyCommunitiesComponent } from "@/components/MyCommunities/page";
 import { div } from "framer-motion/client";
 
-function ProfilePage() {
+function UserPage() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const [user, setUser] = useState<any | null>(null);
+  const params = useParams(); // pega o id da rota /profile/:id
 
   console.log(user);
 
-  const Context = useContext(UserContext);
-  if (!Context) return null;
-
-  const { userAuthenticated } = Context;
-
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      router.push("/");
+    if (!params?.id) {
+      router.push("/"); // redireciona se não tiver id
       return;
     }
 
-    const checkUser = async () => {
+    const fetchUser = async () => {
+      const token = localStorage.getItem("token");
+
       try {
         const response = await api.post(
           "/graphql",
           {
             query: `
-            query Me {
-              me {
-                name
-                nickname
-                email
-                attributes {
-                  fans
-                  cool
-                  sexy
-                  reliable
+              query User($id: ID!) {
+                user(id: $id) {
+                  name
+                  nickname
+                  email
+                  attributes {
+                    fans
+                    cool
+                    sexy
+                    reliable
+                  }
                 }
               }
-            }
-          `,
+            `,
+            variables: {
+              id: params.id,
+            },
           },
           {
             headers: {
@@ -78,7 +77,7 @@ function ProfilePage() {
           return;
         }
 
-        setUser(response.data.data.me);
+        setUser(response.data.data.user);
       } catch (error) {
         console.error("Erro ao validar usuário:", error);
         router.push("/");
@@ -87,12 +86,14 @@ function ProfilePage() {
       }
     };
 
-    checkUser();
-  }, []);
+    fetchUser();
+  }, [params.id]);
 
   if (isLoading) {
     return <Loading />;
   }
+
+  if (!user) return <p>Usuário não encontrado.</p>;
 
   return (
     <div className={styles.page}>
@@ -111,4 +112,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default UserPage;

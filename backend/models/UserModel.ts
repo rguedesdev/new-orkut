@@ -9,6 +9,7 @@ interface IUserAttributes {
 }
 
 interface IUser {
+  accountType: string;
   profilePicture: string;
   name: string;
   nickname: string;
@@ -40,11 +41,15 @@ const attributesSchema = new Schema(
     sexy: { type: Number, default: 0, min: 0 },
     trustworthy: { type: Number, default: 0, min: 0 },
   },
-  { _id: false }
+  { _id: false },
 );
 
 const userSchema = new Schema<IUser>(
   {
+    accountType: {
+      type: String,
+      default: "user",
+    },
     profilePicture: {
       type: String,
     },
@@ -124,7 +129,7 @@ const userSchema = new Schema<IUser>(
       default: {},
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const UserModel = OrkkutDB.model<IUser>("User", userSchema);

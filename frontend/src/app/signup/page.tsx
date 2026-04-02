@@ -14,7 +14,7 @@ import styles from "./signup.module.css";
 import { WelcomeComponent } from "@/components/Welcome/page";
 import { SignUpComponent } from "@/components/SignUpComponent/page";
 
-function SignUp() {
+function SignUpPage() {
   const router = useRouter();
 
   useEffect(() => {
@@ -57,4 +57,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignUpPage;

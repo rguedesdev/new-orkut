@@ -1,0 +1,28 @@
+.page {
+  min-height: 100vh;
+}
+
+.mainContainer {
+  max-width: 1700px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.centralContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rightContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

@@ -18,6 +18,7 @@ function SignUpComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [invitation, setInvitation] = useState("");
 
   const [spinner, setSpinner] = useState(false);
 
@@ -32,7 +33,14 @@ function SignUpComponent() {
         return;
       }
 
-      await signUp(name, nickname, email, password, confirmPassword);
+      await signUp(
+        name,
+        nickname,
+        email,
+        password,
+        confirmPassword,
+        invitation,
+      );
     } catch (err: any) {
       console.error("Erro no login:", err);
       alert(
@@ -57,12 +65,14 @@ function SignUpComponent() {
             {/* <legend>Informações de Login</legend> */}
 
             <div className={styles.inputContainer}>
-              <label htmlFor="my-name">Nome</label>
+              <label className={styles.labelTitle} htmlFor="name">
+                Nome
+              </label>
               <input
                 className={styles.myInputs}
                 type="text"
-                id="myName"
-                name="my-name"
+                id="name"
+                name="name"
                 placeholder="Digite seu nome"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -70,12 +80,12 @@ function SignUpComponent() {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="my-nickname">Nickname</label>
+              <label htmlFor="nickname">Nickname</label>
               <input
                 className={styles.myInputs}
                 type="text"
-                id="myNickname"
-                name="my-nickname"
+                id="nickname"
+                name="nickname"
                 placeholder="Digite seu nickname"
                 value={nickname}
                 onChange={(e) => setNickname(e.target.value)}
@@ -83,12 +93,12 @@ function SignUpComponent() {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="my-email">Email</label>
+              <label htmlFor="email">Email</label>
               <input
                 className={styles.myInputs}
                 type="email"
-                id="myEmail"
-                name="my-email"
+                id="email"
+                name="email"
                 placeholder="Digite seu email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -96,12 +106,12 @@ function SignUpComponent() {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="my-password">Senha</label>
+              <label htmlFor="password">Senha</label>
               <input
                 className={styles.myInputs}
                 type="password"
-                id="myPassword"
-                name="my-password"
+                id="password"
+                name="password"
                 placeholder="Digite sua senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -109,15 +119,28 @@ function SignUpComponent() {
             </div>
 
             <div className={styles.inputContainer}>
-              <label htmlFor="my-confirmPassword">Confirme a senha</label>
+              <label htmlFor="confirmPassword">Confirme a senha</label>
               <input
                 className={styles.myInputs}
                 type="password"
-                id="myConfirmPassword"
-                name="my-confirmPassword"
+                id="confirmPassword"
+                name="confirmPassword"
                 placeholder="Digite sua senha novamente"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+
+            <div className={styles.inputContainer}>
+              <label htmlFor="invitation">Convite</label>
+              <input
+                className={styles.myInputs}
+                type="text"
+                id="invitation"
+                name="invitation"
+                placeholder="Digite o código do convite"
+                value={invitation}
+                onChange={(e) => setInvitation(e.target.value)}
               />
             </div>
           </fieldset>

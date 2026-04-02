@@ -48,15 +48,15 @@ function SearchMain() {
                 id
                 name
                 nickname
-                }
-                 communities {
-                 id
-                 name
-                 category
-                 members
-                }         
-              }  
-            }
+              }
+              communities {
+                id
+                name
+                category
+                members
+              }         
+            }  
+          }
           `,
           variables: {
             search: search,
@@ -143,7 +143,7 @@ function SearchMain() {
               <div
                 key={`${user.id}`}
                 className={styles.searchResult}
-                onClick={() => router.push(`/profile/${user.id}`)}
+                onClick={() => router.push(`/user/${user.id}`)}
               >
                 <Image
                   className={styles.searchImage}

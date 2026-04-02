@@ -1,6 +1,6 @@
 .signUpBox {
   width: 600px;
-  height: 600px;
+  min-height: 600px;
   background-color: #e6ecf6;
   border: 1px solid rgba(2, 93, 146, 0.4);
   border-radius: 8px;
@@ -20,7 +20,7 @@
 } */
 
 .loginTitle {
-  font-size: 1.5rem;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
 
@@ -37,6 +37,10 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
+}
+
+.labelTitle {
+  font-size: 15px;
 }
 
 .myInputs {
@@ -59,10 +63,10 @@
   color: #666565;
 }
 
-.myInputs:focus {
+/* .myInputs:focus {
   border: 2px solid #025d92;
   padding: 0 9px;
-}
+} */
 
 .btnEnter {
   display: flex;
@@ -137,7 +141,7 @@
 }
 
 .memberTitle {
-  font-size: 1.2rem;
+  font-size: 22px;
   font-weight: bold;
 }
 

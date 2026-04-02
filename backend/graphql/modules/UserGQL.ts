@@ -4,6 +4,7 @@ const userTypeDefs = /* GraphQL */ `
   ### ROOT TYPES ###
   type Query {
     me: User
+    user(id: ID!): User
   }
 
   type Mutation {
@@ -35,6 +36,7 @@ const userTypeDefs = /* GraphQL */ `
 
   ### INPUTS ###
   input SignUpInput {
+    invitation: String!
     name: String!
     nickname: String!
     email: String!
@@ -50,6 +52,7 @@ const userTypeDefs = /* GraphQL */ `
 const userResolvers: any = {
   Query: {
     me: (_: any, __: any, context: any) => UserController.checkUser(context),
+    user: (_: any, { id }: any) => UserController.getUserById(id),
   },
   Mutation: {
     signUp: (_: any, { input, confirmPassword }: any) =>

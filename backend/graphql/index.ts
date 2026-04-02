@@ -5,12 +5,17 @@ import {
   communityResolvers,
 } from "./modules/CommunityGQL.js";
 import { searchResolvers, searchTypeDefs } from "./modules/SearchGQL.js";
+import {
+  invitationResolvers,
+  invitationTypeDefs,
+} from "./modules/InvitationGQL.js";
 
 // Combina schemas
 const schema = `
   ${userTypeDefs}
   ${communityTypeDefs}
   ${searchTypeDefs}
+  ${invitationTypeDefs}
 `;
 
 // Combina resolvers
@@ -23,6 +28,7 @@ const resolvers = {
   Mutation: {
     ...userResolvers.Mutation,
     ...communityResolvers.Mutation,
+    ...invitationResolvers.Mutation,
   },
 };
 
