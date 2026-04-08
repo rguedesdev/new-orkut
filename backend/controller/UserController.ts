@@ -2,29 +2,35 @@
 import { UserModel } from "../models/UserModel.js";
 import { InvitationModel } from "../models/InvitationModel.js";
 import bcrypt from "bcrypt";
+import * as z from "zod";
 
 // Middlewares
 import { createUserToken } from "../helpers/create-user-token.js";
 import { getToken } from "../helpers/get-token.js";
 import { getUserByToken } from "../helpers/get-user-by-token.js";
 
+// Schema Zod para SignUp
+const SignUpSchema = z
+  .object({
+    name: z.string().trim().nonempty(),
+    nickname: z.string().trim().nonempty(),
+    email: z.email().trim(),
+    password: z.string().trim().min(6).max(120),
+    confirmPassword: z.string().trim().min(6).max(120),
+    invitation: z.string().trim().nonempty(),
+  })
+  .refine((data) => data.password === data.confirmPassword);
+
+// Schema Zod para SignIn
+const SignInSchema = z.object({
+  email: z.email().trim(),
+  password: z.string().min(6),
+});
+
 class UserController {
-  static async signUp({
-    invitation,
-    name,
-    nickname,
-    email,
-    password,
-    confirmPassword,
-  }: {
-    invitation: string;
-    name: string;
-    nickname: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-  }) {
-    if (!invitation) throw new Error("O código de convite é obrigatório!");
+  static async signUp(input: any) {
+    const { name, nickname, email, password, confirmPassword, invitation } =
+      SignUpSchema.parse(input);
 
     if (!name) throw new Error("O nome é obrigatório!");
 
@@ -37,6 +43,8 @@ class UserController {
 
     if (password !== confirmPassword)
       throw new Error("As senhas precisam ser iguais!");
+
+    if (!invitation) throw new Error("O código de convite é obrigatório!");
 
     const salt = await bcrypt.genSalt(12);
     const passwordHash = await bcrypt.hash(password, salt);
@@ -96,25 +104,22 @@ class UserController {
         },
         token,
       };
-    } catch (error) {
-      // você pode lançar novamente para GraphQL capturar ou logar o erro
+    } catch (error: any) {
       console.error("Erro ao tentar criar usuário!", error);
       throw new Error("Erro ao tentar criar usuário!");
     }
   }
 
-  static async signIn({
-    email,
-    password,
-  }: {
-    email: string;
-    password: string;
-  }) {
+  static async signIn(input: any) {
+    // 1. Sanitização e Validação em um passo só
+    const { email, password } = SignInSchema.parse(input);
+
     if (!email) throw new Error("O email é obrigatório!");
 
     if (!password) throw new Error("A senha é obrigatória!");
 
-    // Procura o usuário pelo email
+    // Agora você tem CERTEZA que email e password são strings.
+    //// Procura o usuário pelo email
     const user = await UserModel.findOne({ email: email });
 
     if (!user) {

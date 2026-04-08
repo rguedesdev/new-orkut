@@ -72,8 +72,8 @@ const userSchema = new Schema<IUser>(
     password: {
       type: String,
       required: true,
-      min: 8,
-      max: 20,
+      min: 6,
+      max: 120,
     },
     // Não necessário na criação do usuário
     gender: {
