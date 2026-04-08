@@ -1,3 +1,70 @@
 .page {
   min-height: 100vh;
 }
+
+.container {
+  max-width: 1700px;
+  height: auto;
+  margin-top: 40px;
+  margin-inline: auto;
+
+  background-color: var(--component-bg-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  padding-top: 20px;
+  padding-bottom: 30px;
+  padding-inline: 30px;
+}
+
+.communityTitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.btnCreate {
+  display: block;
+  margin-inline: auto;
+  margin-top: 40px;
+  padding: 10px 100px;
+  background-color: var(--link-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fieldset {
+  border: 1px solid rgba(2, 93, 146, 0.4);
+  border-radius: 4px;
+  padding: 0 10px 5px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.legend {
+  font-size: 14px;
+  padding: 0 5px;
+  color: #ed2590;
+}
+
+.textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+  min-height: 100px;
+  padding-top: 20px;
+  background: transparent;
+}
+
+.textarea::placeholder {
+  font-size: 14px;
+  color: #999;
+}
+
+.error {
+  color: #ed2590;
+  font-size: 13px;
+}

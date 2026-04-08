@@ -53,16 +53,28 @@ function useAuth() {
         query: mutation,
         variables,
       });
-      const signInData: TAuthPayload = response.data.data.signIn;
 
-      console.log("Resposta GraphQL:", signInData);
+      const { data, errors } = response.data;
 
-      if (!signInData?.token || !signInData?.user) {
+      // 💥 TRATA ERRO DO GRAPHQL (esse era o problema)
+      if (errors?.length) {
+        throw new Error(errors[0].message);
+      }
+
+      // 💥 GARANTE QUE DATA EXISTE
+      if (!data || !data.signIn) {
+        throw new Error("Resposta inválida do servidor");
+      }
+
+      const signInData: TAuthPayload = data.signIn;
+
+      // 💥 VALIDA PAYLOAD
+      if (!signInData.token || !signInData.user) {
         throw new Error("Credenciais inválidas");
       }
 
-      // Só autentica se veio token e user válido
-      await authUser(signInData);
+      // autentica
+      authUser(signInData); // não precisa de await
 
       return signInData;
     } catch (err) {
@@ -79,43 +91,48 @@ function useAuth() {
     confirmPassword: string,
     invitation: string,
   ) {
-    const mutation = `
-      mutation signUp($input: SignUpInput!, $confirmPassword: String!) {
-        signUp(input: $input, confirmPassword: $confirmPassword) {
-          user {
-            id
-            name
-            nickname
-            email
+    try {
+      const mutation = `
+        mutation signUp($input: SignUpInput!, $confirmPassword: String!) {
+          signUp(input: $input, confirmPassword: $confirmPassword) {
+            user {
+              id
+              name
+              nickname
+              email
+            }
+            token
           }
-          token
         }
-      }
     `;
 
-    const variables = {
-      input: { name, nickname, email, password, invitation },
-      confirmPassword,
-    };
+      const variables = {
+        input: { name, nickname, email, password, invitation },
+        confirmPassword,
+      };
 
-    const response = await api.post("/graphql", {
-      query: mutation,
-      variables,
-    });
+      const response = await api.post("/graphql", {
+        query: mutation,
+        variables,
+      });
 
-    const { data, errors } = response.data;
+      const { data, errors } = response.data;
 
-    if (errors?.length) {
-      throw new Error(errors[0].message);
+      if (errors?.length) {
+        throw new Error(errors[0].message);
+      }
+
+      const authPayload: TAuthPayload = data.signUp;
+
+      if (!authPayload?.token || !authPayload?.user) {
+        throw new Error("Resposta inválida do servidor");
+      }
+
+      await authUser(authPayload);
+    } catch (err) {
+      console.error("Erro no login:", err);
+      throw err;
     }
-
-    const authPayload: TAuthPayload = data.signUp;
-
-    if (!authPayload?.token || !authPayload?.user) {
-      throw new Error("Resposta inválida do servidor");
-    }
-
-    await authUser(authPayload);
   }
 
   async function logout() {

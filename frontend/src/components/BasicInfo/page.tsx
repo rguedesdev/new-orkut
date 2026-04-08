@@ -37,7 +37,7 @@ import { TbMessageDots } from "react-icons/tb";
 
 // Images
 import Kon from "../../../public/kon.jpg";
-import Marina from "../../public/marina.png";
+import Marina from "../../../public/marina.jpg";
 
 interface IUser {
   name: string;
@@ -52,7 +52,7 @@ function BasicInfoComponent({ user }: { user: IUser }) {
         <div className={styles.profileBorder}>
           <Image
             className={styles.profileImage}
-            src={Kon}
+            src={Marina}
             alt="Profile Image"
             width={200}
             height={200}

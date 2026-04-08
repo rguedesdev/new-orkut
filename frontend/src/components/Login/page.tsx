@@ -1,26 +1,47 @@
 "use client";
 
+// Imports Principais
 import { useContext, useState } from "react";
 import Link from "next/link";
 import { UserContext } from "@/context/UserContext";
+import { useForm, SubmitHandler } from "react-hook-form";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ToastContainer, toast } from "react-toastify";
 
 // Style Sheet CSS
 import styles from "./login.module.css";
 
+// Componentes
+import { Input } from "../Input/page";
+
+// Schema Zod para SignIn
+const CreateSignInSchema = z.object({
+  email: z.email("O email é obrigatório!").trim(),
+  password: z
+    .string()
+    .nonempty("A senha é obrigatória!")
+    .min(6, "A senha precisa ter no mínimo 6 digitos!"),
+});
+
+type TCreateSignInFormData = z.infer<typeof CreateSignInSchema>;
+
 function LoginComponent() {
   const Context = useContext(UserContext);
   if (!Context) return null;
-
   const { signIn } = Context;
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const [spinner, setSpinner] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TCreateSignInFormData>({
+    resolver: zodResolver(CreateSignInSchema),
+  });
 
+  const handleSignIn: SubmitHandler<TCreateSignInFormData> = async (data) => {
     setSpinner(true);
 
     try {
@@ -29,18 +50,17 @@ function LoginComponent() {
         return;
       }
 
-      await signIn(email, password);
+      await signIn(data.email, data.password);
     } catch (err: any) {
-      console.error("Erro no login:", err);
-      alert(
-        `❌ Falha ao fazer login: ${
-          err.message || "Verifique suas credenciais"
-        }`,
-      );
+      console.error("Erro ao logar:", err);
+      toast.error(err.message, {
+        icon: <span className="text-red-500 text-2xl mb-1">&#10539;</span>,
+        position: "top-center",
+      });
     } finally {
       setSpinner(false);
     }
-  }
+  };
 
   return (
     <section aria-labelledby={styles.loginTitle}>
@@ -49,36 +69,24 @@ function LoginComponent() {
           Login
         </h1>
 
-        <form onSubmit={handleSubmit}>
-          <fieldset className={styles.loginInputs}>
-            {/* <legend>Informações de Login</legend> */}
+        <form onSubmit={handleSubmit(handleSignIn)} autoComplete="off">
+          <Input
+            inputLabel="Email"
+            inputType="email"
+            inputID="email"
+            inputPlaceholder="Digite seu email"
+            register={register("email")}
+            error={errors.email?.message}
+          />
 
-            <div className={styles.inputContainer}>
-              <label htmlFor="email">Email</label>
-              <input
-                className={styles.myInputs}
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Digite seu email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-
-            <div className={styles.inputContainer}>
-              <label htmlFor="password">Senha</label>
-              <input
-                className={styles.myInputs}
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Digite sua senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          </fieldset>
+          <Input
+            inputLabel="Senha"
+            inputType="password"
+            inputID="password"
+            inputPlaceholder="Digite sua senha"
+            register={register("password")}
+            error={errors.password?.message}
+          />
 
           {spinner ? (
             <button className={styles.btnEnter}>

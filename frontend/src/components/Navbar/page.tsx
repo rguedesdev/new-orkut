@@ -36,6 +36,7 @@ import { TbLogout } from "react-icons/tb";
 import LogoLight from "../../../public/orkkut_logo1.png";
 import LogoDark from "../../../public/orkkut_logo2.png";
 import Kon from "../../../public/kon.jpg";
+import Marina from "../../../public/marina.jpg";
 
 function Navbar() {
   // const authenticated = useContext(UserContext);
@@ -145,14 +146,14 @@ function Navbar() {
               <div className={styles.navProfilePictureBorder}>
                 <Image
                   className={styles.navProfilePicture}
-                  src={Kon}
+                  src={Marina}
                   alt="Profile Picture"
                   width={0}
                   height={0}
                   priority
                 />
               </div>
-              <h3 className={styles.navNameNickname}>Reinaldo Guedes</h3>
+              <h3 className={styles.navNameNickname}>Marina Penharver</h3>
 
               {/* seta que abre/fecha dropdown */}
               <div className={styles.dropDownContainer}>

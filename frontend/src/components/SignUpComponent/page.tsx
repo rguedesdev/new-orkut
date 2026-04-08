@@ -3,9 +3,46 @@
 import { useContext, useState } from "react";
 import Link from "next/link";
 import { UserContext } from "@/context/UserContext";
+import { useForm, SubmitHandler } from "react-hook-form";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ToastContainer, toast } from "react-toastify";
 
 // Style Sheet CSS
 import styles from "./signupcomponente.module.css";
+
+// Componentes
+import { Input } from "../Input/page";
+
+// Schema Zod para SignUp
+const CreateSignUpSchema = z
+  .object({
+    name: z.string().trim().nonempty("O nome é obrigatório!"),
+    nickname: z.string().trim().nonempty("O nickname é obrigatório!"),
+    email: z.email("O email é obrigatório!").trim(),
+    password: z
+      .string()
+      .trim()
+      .nonempty("A senha é obrigatória!")
+      .min(6, "A senha precisa ter pelo menos 6 caracteres!")
+      .max(120),
+    confirmPassword: z
+      .string()
+      .nonempty("A confirmação da Senha é obrigatória!")
+      .trim()
+      .min(6, "A senha precisa ter pelo menos 6 caracteres!")
+      .max(120),
+    invitation: z
+      .string()
+      .trim()
+      .nonempty("O código do convite é obrigatório!"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "As senhas não coincidem!",
+    path: ["confirmPassword"], // Indica que o erro aparecerá no campo de confirmar
+  });
+
+type TCreateSignUpFormData = z.infer<typeof CreateSignUpSchema>;
 
 function SignUpComponent() {
   const Context = useContext(UserContext);
@@ -13,18 +50,17 @@ function SignUpComponent() {
 
   const { signUp } = Context;
 
-  const [name, setName] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [invitation, setInvitation] = useState("");
-
   const [spinner, setSpinner] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TCreateSignUpFormData>({
+    resolver: zodResolver(CreateSignUpSchema),
+  });
 
+  const handleSignUp: SubmitHandler<TCreateSignUpFormData> = async (data) => {
     setSpinner(true);
 
     try {
@@ -34,24 +70,20 @@ function SignUpComponent() {
       }
 
       await signUp(
-        name,
-        nickname,
-        email,
-        password,
-        confirmPassword,
-        invitation,
+        data.name,
+        data.nickname,
+        data.email,
+        data.password,
+        data.confirmPassword,
+        data.invitation,
       );
     } catch (err: any) {
-      console.error("Erro no login:", err);
-      alert(
-        `❌ Falha ao fazer login: ${
-          err.message || "Verifique suas credenciais"
-        }`,
-      );
+      console.error("Erro ao cadastrar:", err);
+      toast.error(err.message);
     } finally {
       setSpinner(false);
     }
-  }
+  };
 
   return (
     <section aria-labelledby={styles.loginTitle}>
@@ -60,90 +92,60 @@ function SignUpComponent() {
           Cadastre-se
         </h1>
 
-        <form onSubmit={handleSubmit}>
-          <fieldset className={styles.signUpInputs}>
-            {/* <legend>Informações de Login</legend> */}
+        <form onSubmit={handleSubmit(handleSignUp)} autoComplete="off">
+          <Input
+            inputLabel="Name"
+            inputType="text"
+            inputID="name"
+            inputPlaceholder="Digite o seu nome completo"
+            register={register("name")}
+            error={errors.name?.message}
+          />
 
-            <div className={styles.inputContainer}>
-              <label className={styles.labelTitle} htmlFor="name">
-                Nome
-              </label>
-              <input
-                className={styles.myInputs}
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Digite seu nome"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
+          <Input
+            inputLabel="Nickname"
+            inputType="text"
+            inputID="nickname"
+            inputPlaceholder="Digite o seu nome Nickname"
+            register={register("nickname")}
+            error={errors.nickname?.message}
+          />
 
-            <div className={styles.inputContainer}>
-              <label htmlFor="nickname">Nickname</label>
-              <input
-                className={styles.myInputs}
-                type="text"
-                id="nickname"
-                name="nickname"
-                placeholder="Digite seu nickname"
-                value={nickname}
-                onChange={(e) => setNickname(e.target.value)}
-              />
-            </div>
+          <Input
+            inputLabel="Email"
+            inputType="email"
+            inputID="email"
+            inputPlaceholder="Digite o seu email"
+            register={register("email")}
+            error={errors.email?.message}
+          />
 
-            <div className={styles.inputContainer}>
-              <label htmlFor="email">Email</label>
-              <input
-                className={styles.myInputs}
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Digite seu email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
+          <Input
+            inputLabel="Senha"
+            inputType="password"
+            inputID="password"
+            inputPlaceholder="Digite a sua Senha"
+            register={register("password")}
+            error={errors.password?.message}
+          />
 
-            <div className={styles.inputContainer}>
-              <label htmlFor="password">Senha</label>
-              <input
-                className={styles.myInputs}
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Digite sua senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
+          <Input
+            inputLabel="Confirme a Senha"
+            inputType="password"
+            inputID="confirmPassword"
+            inputPlaceholder="Confirme a Senha"
+            register={register("confirmPassword")}
+            error={errors.confirmPassword?.message}
+          />
 
-            <div className={styles.inputContainer}>
-              <label htmlFor="confirmPassword">Confirme a senha</label>
-              <input
-                className={styles.myInputs}
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                placeholder="Digite sua senha novamente"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
-
-            <div className={styles.inputContainer}>
-              <label htmlFor="invitation">Convite</label>
-              <input
-                className={styles.myInputs}
-                type="text"
-                id="invitation"
-                name="invitation"
-                placeholder="Digite o código do convite"
-                value={invitation}
-                onChange={(e) => setInvitation(e.target.value)}
-              />
-            </div>
-          </fieldset>
+          <Input
+            inputLabel="Convite"
+            inputType="text"
+            inputID="invitation"
+            inputPlaceholder="Digite o código do Convite"
+            register={register("invitation")}
+            error={errors.invitation?.message}
+          />
 
           {spinner ? (
             <button className={styles.btnEnter}>

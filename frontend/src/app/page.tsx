@@ -3,6 +3,7 @@
 // Imports Principais
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { ToastContainer } from "react-toastify";
 
 // Axios
 import api from "@/utils/api";
@@ -52,6 +53,11 @@ function HomePage() {
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        style={{ marginTop: "80px" }}
+        icon={<span className="text-red-500 text-2xl mb-1">&#10539;</span>}
+      />
       <aside className={styles.infoBanner}>
         <p className={styles.boujeeText}>
           Não temos nenhum vínculo com a Alphabet/Google nem com o Orkut

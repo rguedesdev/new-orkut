@@ -19,7 +19,6 @@ import { ProfileDetailsComponent } from "@/components/ProfileDetails/page";
 import { TestimonialsComponent } from "@/components/Testimonials/page";
 import { FriendsComponent } from "@/components/Friends/page";
 import { MyCommunitiesComponent } from "@/components/MyCommunities/page";
-import { div } from "framer-motion/client";
 
 function ProfilePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,10 +27,10 @@ function ProfilePage() {
 
   console.log(user);
 
-  const Context = useContext(UserContext);
-  if (!Context) return null;
+  // const Context = useContext(UserContext);
+  // if (!Context) return null;
 
-  const { userAuthenticated } = Context;
+  // const { userAuthenticated } = Context;
 
   useEffect(() => {
     const token = localStorage.getItem("token");

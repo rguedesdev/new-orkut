@@ -1,6 +1,6 @@
 .loginBox {
   width: 360px;
-  height: 380px;
+  min-height: 380px;
   background-color: #e6ecf6;
   border: 1px solid rgba(2, 93, 146, 0.4);
   border-radius: 8px;

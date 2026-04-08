@@ -5,9 +5,8 @@
 .mainContainer {
   max-width: 1700px;
   height: auto;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 40px;
+  margin-inline: auto;
 
   display: flex;
   flex-direction: row;

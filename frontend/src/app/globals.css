@@ -17,6 +17,7 @@ body,
   --link-color-hover: #ed2590;
   --footer-bg-color: #ffffff;
   --bg-color: #d4dded;
+  --component-bg-color: #ffffff;
   --card-bg-color: #ffffff;
   --thoughts-bg-color: #f0f5fc;
   --hr-color: #ed2590;
@@ -32,6 +33,7 @@ body,
   --link-color-hover: #0377b9;
   --footer-bg-color: #152232;
   --bg-color: #0b1622;
+  --component-bg-color: #152232;
   --card-bg-color: #152232;
   --thoughts-bg-color: #15283c;
   --hr-color: #0377b9;

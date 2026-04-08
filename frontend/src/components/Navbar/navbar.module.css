@@ -154,7 +154,7 @@
   top: 50px;
   right: 0;
   width: 250px;
-  background-color: #fff;
+  background-color: var(--nav-bg-color);
   border: 1px solid #ddd;
   border-radius: 8px;
   min-width: 180px;
@@ -187,7 +187,7 @@
   width: 100%;
   padding: 10px 15px;
   font-size: 1rem;
-  color: var(--text-color);
+  color: var(--text-primary);
   cursor: pointer;
   transition: background 0.2s;
 
@@ -198,6 +198,6 @@
 }
 
 .dropDownMenu li:hover {
-  background-color: #f0f5fc;
-  color: #ed2590;
+  background-color: #052b43;
+  color: #fff;
 }
